@@ -8,6 +8,7 @@ function letterGuess() {
 
 function getWord(pastaWords){
     var index = randomNumber(pastaWords.length);
+    console.log(index);
 
 
     // var choices = document.getElementById('words');
@@ -17,8 +18,8 @@ function getWord(pastaWords){
 }
 
 function randomNumber(amount){
-    return Math.floor(Math.random(amount);
+    return Math.floor(Math.random(amount) * words.length);
 
 }
 
-getWord();
+getWord(words);
