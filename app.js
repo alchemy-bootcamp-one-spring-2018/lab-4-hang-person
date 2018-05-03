@@ -6,10 +6,19 @@ function letterGuess() {
     console.log(guessed);
 }
 
-function getWord(){
-    var choices = document.getElementById('words');
-    var wordChoice = choices[Math.floor(Math.random() * 5)];
-    console.log(wordChoice);
+function getWord(pastaWords){
+    var index = randomNumber(pastaWords.length);
+
+
+    // var choices = document.getElementById('words');
+    // console.log(choices);
+    // var wordChoice = choices[Math.floor(Math.random() * 5)];
+    // console.log(wordChoice);
+}
+
+function randomNumber(amount){
+    return Math.floor(Math.random(amount);
+
 }
 
 getWord();
