@@ -1,7 +1,7 @@
 'use strict';
 
 function letterGuess() {
-    console.log.getElementById("guess");
-
-
+    var userGuess = document.getElementById('guess');
+    var guessed = userGuess.value.trim();
+    console.log(guessed);
 }
