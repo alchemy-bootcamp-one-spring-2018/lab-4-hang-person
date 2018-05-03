@@ -48,7 +48,6 @@ function guess() {
     var letter = letterGuessed.value;
     console.log('user guessed', letter);
 
-    guessCount++;
 
     if(letter === '') {
         alert('Field blank, please type a letter.');
@@ -56,14 +55,23 @@ function guess() {
     else if(word.includes(letter.toLowerCase())) {
         console.log('woo');
         // add letter to fill-in-the-blank (correct) section
+        document.getElementById('letter- ' + i);
+
         // check to see if word is complete and game is won!
             // if won, say so
     }
     // else ( guess is wrong ) {
+        guessCount++;
         // add letter to guessed (wrong) section
+        document.getElementById('wrong- ' + i);
+
         // add body part to hang person
+        //max guess is 6 (6 body parts)
         // check to see if hang person is complete and game is lost!
-            // if lost, say so
+            if(guessCount === 6) {
+                // if lost, say so 
+                alert('You lose :('); 
+            }
     }
 }
 
