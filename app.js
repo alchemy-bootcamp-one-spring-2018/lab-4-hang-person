@@ -16,7 +16,6 @@ var word = '';
 function loadWord() {
     var index = getRandomIndex(listOfWords.length);
     word = listOfWords[index];
-
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -44,7 +43,7 @@ function getRandomIndex(max) {
 //         1. If win or lose condition:
 //             1. message the user that they won or ~~died~~ lost
 //             1. Disable the Guess Letter button (button.disabled = true)
-var guessCount = 0; 
+var guessCount = 0;
 
 function guess() {
     var letterGuessed = document.getElementById('letter-input');
@@ -61,13 +60,13 @@ function guess() {
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
                 document.getElementById('letter-' + j).textContent = letter;
-                wordArray.splice(j, 1);
+                // wordArray.splice(j, 1);
             }
         }
         // check to see if word is complete and game is won!
         if(wordArray.length === 0) {
             // if won, say so
-            alert('YOU WON!!!!!!'); 
+            alert('YOU WON!!!!!!');
         }
     }
     else {
