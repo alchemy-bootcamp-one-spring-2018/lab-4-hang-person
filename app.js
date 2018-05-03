@@ -36,7 +36,7 @@ function gameOn() {
     }
 
     if(i === 6 && !correct) {
-        alert('Damn bro, you suck so hard somebody died*/');
+        alert('Damn bro, you suck so hard somebody died');
 
     }
 
