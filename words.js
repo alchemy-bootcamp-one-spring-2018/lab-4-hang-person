@@ -1,6 +1,6 @@
 
 
-var words = [
+var wordList = [
     'pencil',
     'paper',
     'charcoal',
