@@ -5,5 +5,8 @@ var words= [
     'spaghetti',
     'penne',
     'ravioli',
-    'linguine'
+    'linguine',
+    'rotini',
+    'rigatoni',
+    'macroni'
 ];
