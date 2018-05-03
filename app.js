@@ -13,6 +13,8 @@ function randomState() {
 var selectedState;
 var stateLength;
 var winCheck;
+var guessNumber = 0;
+var guessedLetter = '';
 
 function stateGame() {
     //clear old lines and letters
@@ -36,18 +38,38 @@ function stateGame() {
 
 function guessLetter() {
     var letter = document.getElementById('letterInput').value;
-    document.getElementById('letterInput').value ='';
+    document.getElementById('letterInput').value = '';
     letter = letter.toLowerCase();
-    if(selectedState.includes(letter) === true) {
+
+    console.log(guessedLetter);
+    // = document.getElementById('guessed-letter');
+    //guessedLetter.textContent += letter + ' ';
+    if(guessedLetter.includes(letter) === true) {
+        var again = document.getElementById('game-end-response');
+        again.textContent = 'Another letter';
+    }
+    else if(selectedState.includes(letter) === true) {
         for(var i = 0; i < stateLength; i++) {
             if(letter === selectedState[i]) {
                 document.getElementById('letter-' + i).textContent = letter;
-                winCheck[i] = letter;   
+                winCheck[i] = letter;
             }
         }
-        console.log(winCheck); 
+        if(selectedState === winCheck.join('')) {
+            var win = document.getElementById('game-end-response');
+            win.textContent = 'You win!';
+        }
+        console.log(winCheck);
+        guessedLetter = guessedLetter + letter;
     }
     else {
-        alert('bad');
+        guessedLetter = guessedLetter + letter;
+        guessNumber++;
+        console.log(guessNumber);
+        if(guessNumber === 6) {
+            var lose = document.getElementById('game-end-response');
+            lose.textContent = 'You lose!';
+        }
     }
+
 }
