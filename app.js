@@ -8,6 +8,17 @@ var words = [
     'Supercilious',
     'Portmanteau',
 ];
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomWord(wordArray) {
+    var randomWord = Math.floor(Math.random() * Math.floor(wordArray.length));
+
+    return randomWord;
+
+}
+
+console.log(getRandomWord(words));
+
+
 
 var laboratory = {
     characters: 10,
@@ -39,6 +50,5 @@ function gameOn() {
         alert('Damn bro, you suck so hard somebody died');
 
     }
-
 
 }
