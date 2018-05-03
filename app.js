@@ -9,6 +9,8 @@ function letterGuess() {
 function getWord(pastaWords){
     var index = randomNumber(pastaWords.length);
     console.log(index);
+    var pasta = pastaWords[index];
+    console.log(pasta);
 
 
     // var choices = document.getElementById('words');
