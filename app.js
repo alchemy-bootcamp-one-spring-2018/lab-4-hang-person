@@ -8,10 +8,11 @@
 //     1. Selects the word from the array with that index and stores for use by the guess function (word 
 //     will need to be scoped in way guess function can read.
 
+var word = '';
 function loadWord() {
     var index = getRandomIndex(listOfWords.length);
     
-    var word = listOfWords[index];
+    word = listOfWords[index];
 
 }
 
@@ -52,18 +53,21 @@ function guess() {
     if(letter === '') {
         alert('Field blank, please type a letter.');
     }
-    else if() {
-
+    else if(word.includes(letter.toLowerCase())) {
+        console.log('woo');
+        // add letter to fill-in-the-blank (correct) section
+        // check to see if word is complete and game is won!
+            // if won, say so
     }
-    else if() {
-
+    // else ( guess is wrong ) {
+        // add letter to guessed (wrong) section
+        // add body part to hang person
+        // check to see if hang person is complete and game is lost!
+            // if lost, say so
     }
-    else {
-
-    }
-
 }
 
 
 // 1. Call 'loadWord()` to start things
 loadWord();
+console.log(word);
