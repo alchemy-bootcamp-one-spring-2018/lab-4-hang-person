@@ -11,28 +11,41 @@ function randomState() {
     //return that state
 }
 var selectedState;
+var stateLength;
+var winCheck;
 
 function stateGame() {
     //clear old lines and letters
     for(var i = 0; i < 13; i++) {
         document.getElementById('letter-' + i).textContent = ' ';
     }
+    winCheck = '';
     //get a random state name
     selectedState = randomState().toLowerCase();
     console.log(selectedState);
 
     //underscore for each letter in state
-    var stateLength = selectedState.length;
+    stateLength = selectedState.length;
     for(i = 0; i < stateLength; i++) {
         document.getElementById('letter-' + i).textContent = '_';
+        winCheck += '_';
     }
+    winCheck = winCheck.split('');
+    console.log(winCheck);
 }
 
 function guessLetter() {
     var letter = document.getElementById('letterInput').value;
+    document.getElementById('letterInput').value ='';
     letter = letter.toLowerCase();
     if(selectedState.includes(letter) === true) {
-        alert('good');
+        for(var i = 0; i < stateLength; i++) {
+            if(letter === selectedState[i]) {
+                document.getElementById('letter-' + i).textContent = letter;
+                winCheck[i] = letter;   
+            }
+        }
+        console.log(winCheck); 
     }
     else {
         alert('bad');
