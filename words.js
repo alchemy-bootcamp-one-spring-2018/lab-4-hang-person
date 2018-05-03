@@ -1,11 +1,11 @@
 
 
 var wordList = [
-    'pencil',
+    'pencpil',
     'paper',
     'charcoal',
-    'paint',
-    'eraser',
-    'marker'
+    'ipaint',
+    'eraserr',
+    'maraker'
 ];
 

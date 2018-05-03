@@ -13,13 +13,15 @@ function getRandomInt(max) {
 // uses random integer to get a word from our array wordList
 function loadWord() {
     var randomIndex = getRandomInt(wordList.length);
-    return wordList[randomIndex];
-
+    return wordList[randomIndex]
 }
+
+
 var currentWord = loadWord();
+
 var p = document.getElementById('currentArrayWord');
 p.textContent = currentWord;
-console.log ("p is:", p);
+console.log ('p is:', p);
 
 //document.getElementById('currentArrayWord').textContent = currentWord;
 
@@ -32,8 +34,24 @@ function guess() {
         alert('Please enter exactly one letter.');
         return;
     }
+    
+    //var letterIndex = currentWord.indexOf(letterGuess);
+    //console.log ('Found letterGuess at position:', letterIndex);
+    var startAtIndex = 0;
+    var letterIndex;
+    var wrongGuesses = [];
+//checking if guess is in word and pushing wrong guesses into array
+    if(currentWord.indexOf(letterGuess, startAtIndex) === -1){
+        wrongGuesses.push(letterGuess);
+        console.log('wrong guesses:', wrongGuesses);
+    }
 
-    var letterIndex = currentWord.indexOf(letterGuess);
-    console.log ('Found letterGuess at position:', letterIndex);
+
+//while loop to find guessed letter position
+    while(letterIndex !== -1) {
+        letterIndex = currentWord.indexOf(letterGuess, startAtIndex);
+        console.log ('Found letterGuess at position:', letterIndex);
+        startAtIndex = letterIndex + 1;
+    }
 
 }
