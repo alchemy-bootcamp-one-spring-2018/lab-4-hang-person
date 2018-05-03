@@ -34,3 +34,6 @@ function wordLength(sample){
 }
 var testString = getWord(words);
 wordLength('hello');
+
+
+// random line test
