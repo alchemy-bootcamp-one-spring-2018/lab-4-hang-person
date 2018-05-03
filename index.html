@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <h1>Hang Person</h1>
     <button onclick="stateGame()">Click to Start</button>
     <p id="state-name"> 
         <span id = "letter-0"></span>
@@ -28,6 +29,12 @@
         <input id="letterInput" maxlength="1">
         <button onclick="guessLetter()">Guess</button>
     </p>
+    <section>
+        <p id="guessed-letters"></p>
+    </section>
+    <section id="game-end">
+        <p id="game-end-response"></p>
+    </section>
     <script src="word.js"></script>
     <script src="app.js"></script>
 </body>
