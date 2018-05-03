@@ -13,12 +13,15 @@
 
     <h2>Word</h2>
 
-    <input id="guess">
+    <input id="guess" onfocus="this.value=''" maxlength="1">
 
 
     <button id="submit" onclick="letterGuess()"> Submit
     </button>
+
     <p id="inputDisplay"></p>
+
+    <p id="wordOnScreen"></p>
 <script src = "words.js"></script>
 <script src = "app.js"></script>
 
