@@ -8,7 +8,7 @@ function letterGuess() {
     var guessed = userGuess.value.trim();
     console.log(guessed);
     //updates letters in string
-    displayLetters += guessed;
+    displayLetters += guessed + " ";
     //changes the text on screen for display
     var p = document.getElementById('inputDisplay');
     p.textContent = displayLetters;
@@ -21,6 +21,8 @@ function getWord(pastaWords){
     //actually gets item from array
     var pasta = pastaWords[index];
     console.log(pasta);
+    var p1 = document.getElementById('wordOnScreen');
+    p1.textContent = pasta;
 
 
     // var choices = document.getElementById('words');
