@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <button onclick="randomState()">Click to Start</button>
+    <button onclick="stateGame()">Click to Start</button>
     <p id="state-name"> 
         <span id = "letter-0"></span>
         <span id = "letter-1"></span>
@@ -23,6 +23,10 @@
         <span id = "letter-10"></span>
         <span id = "letter-11"></span>
         <span id = "letter-12"></span>
+    </p>
+    <p id="guess">
+        <input id="letterInput" maxlength="1">
+        <button onclick="guessLetter()">Guess</button>
     </p>
     <script src="word.js"></script>
     <script src="app.js"></script>

@@ -1,4 +1,4 @@
-/* exported randomState */
+/* exported stateGame */
 'use strict';
 
 function randomState() {
@@ -10,5 +10,31 @@ function randomState() {
     return selectedState;
     //return that state
 }
-  
+var selectedState;
 
+function stateGame() {
+    //clear old lines and letters
+    for(var i = 0; i < 13; i++) {
+        document.getElementById('letter-' + i).textContent = ' ';
+    }
+    //get a random state name
+    selectedState = randomState().toLowerCase();
+    console.log(selectedState);
+
+    //underscore for each letter in state
+    var stateLength = selectedState.length;
+    for(i = 0; i < stateLength; i++) {
+        document.getElementById('letter-' + i).textContent = '_';
+    }
+}
+
+function guessLetter() {
+    var letter = document.getElementById('letterInput').value;
+    letter = letter.toLowerCase();
+    if(selectedState.includes(letter) === true) {
+        alert('good');
+    }
+    else {
+        alert('bad');
+    }
+}
