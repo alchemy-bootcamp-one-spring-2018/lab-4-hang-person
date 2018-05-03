@@ -1,9 +1,11 @@
 'use strict';
 
+var userGuess = document.getElementById('guess');
 function letterGuess() {
-    var userGuess = document.getElementById('guess');
     var guessed = userGuess.value.trim();
     console.log(guessed);
+    var p = document.getElementById(inputDisplay);
+    p.textContent = guessed;
 }
 
 function getWord(pastaWords){
@@ -24,4 +26,11 @@ function randomNumber(amount){
 
 }
 
-getWord(words);
+
+// still trying to get this working wordLength and testSTRING VAR
+function wordLength(sample){
+    return sample.length;
+    console.log(sample.length);
+}
+var testString = getWord(words);
+wordLength('hello');
