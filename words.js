@@ -1,10 +1,10 @@
 var listOfWords = [
     'powells',
-    'esplanade',
+    'rain',
     'omsi',
     'roses',
-    'stumptown',
-    'saltandstraw',
+    'trimet',
     'bike',
-    'sasquatch'
+    'max',
+    'coffee'
 ];

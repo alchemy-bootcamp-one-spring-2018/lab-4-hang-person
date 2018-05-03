@@ -11,6 +11,8 @@
 function loadWord() {
     var index = getRandomIndex(listOfWords.length);
     
+    var word = listOfWords[index];
+
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -18,9 +20,7 @@ function getRandomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-//     1. Set the visibility on the letters of the "Word to Guess" to hidden and fully hide 
-//     (no line blank) any unused letter spaces. (You might not hide them initially so you can "see" that
-//     word is loading correctly.
+
 // 1. Create a `guess` function that
 //     1. Is called by the click of the Guess Letter button
 //     1. Reads the letter from the Guess Letter input
@@ -40,4 +40,30 @@ function getRandomIndex(max) {
 //         1. If win or lose condition:
 //             1. message the user that they won or ~~died~~ lost
 //             1. Disable the Guess Letter button (button.disabled = true)
+var guessCount = 0;
+
+function guess() {
+    var letterGuessed = document.getElementById("letter-input");
+    var letter = letterGuessed.value;
+    console.log('user guessed', letter);
+
+    guessCount++;
+
+    if(letter === '') {
+        alert('Field blank, please type a letter.');
+    }
+    else if() {
+
+    }
+    else if() {
+
+    }
+    else {
+
+    }
+
+}
+
+
 // 1. Call 'loadWord()` to start things
+loadWord();
