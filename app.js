@@ -1,17 +1,20 @@
+/* exported loadWord, guess */
+/* globals listOfWords */
+'use strict';
+
 // ### App
 
-// Create a file `app.js` that exposes functions for running the game. 
+// Create a file `app.js` that exposes functions for running the game.
 // Don't forget to include a script tag with `src` for this file.
 
 // 1. Create a `loadWord` function that
 //     1. Gets a random integer between 0 (inclusive) and length of word (exclusive)
-//     1. Selects the word from the array with that index and stores for use by the guess function (word 
+//     1. Selects the word from the array with that index and stores for use by the guess function (word
 //     will need to be scoped in way guess function can read.
 
 var word = '';
 function loadWord() {
     var index = getRandomIndex(listOfWords.length);
-    
     word = listOfWords[index];
 
 }
@@ -44,10 +47,9 @@ function getRandomIndex(max) {
 var guessCount = 0;
 
 function guess() {
-    var letterGuessed = document.getElementById("letter-input");
+    var letterGuessed = document.getElementById('letter-input');
     var letter = letterGuessed.value;
     console.log('user guessed', letter);
-
 
     if(letter === '') {
         alert('Field blank, please type a letter.');
@@ -55,23 +57,27 @@ function guess() {
     else if(word.includes(letter.toLowerCase())) {
         console.log('woo');
         // add letter to fill-in-the-blank (correct) section
-        document.getElementById('letter- ' + i);
-
+        var wordArray = word.split('');
+        for(var j = 0; j < wordArray.length; j++) {
+            if(letter === wordArray[j]) {
+                document.getElementById('letter-' + j).textContent = letter;
+            }
+        }
         // check to see if word is complete and game is won!
-            // if won, say so
+        // if won, say so
     }
-    // else ( guess is wrong ) {
+    else {
         guessCount++;
         // add letter to guessed (wrong) section
-        document.getElementById('wrong- ' + i);
+        document.getElementById('wrong-' + j);
 
         // add body part to hang person
         //max guess is 6 (6 body parts)
         // check to see if hang person is complete and game is lost!
-            if(guessCount === 6) {
-                // if lost, say so 
-                alert('You lose :('); 
-            }
+        if(guessCount === 6) {
+            // if lost, say so
+            alert('You lose :(');
+        }
     }
 }
 

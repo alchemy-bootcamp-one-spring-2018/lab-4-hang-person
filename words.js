@@ -1,3 +1,6 @@
+/* exported listOfWords */
+'use strict';
+
 var listOfWords = [
     'powells',
     'rain',
