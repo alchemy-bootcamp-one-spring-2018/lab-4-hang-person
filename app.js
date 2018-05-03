@@ -1,6 +1,25 @@
 'use strict';
-/* exported gameOn, attempts*/
+/* exported gameOn, words attempts*/
 
+/* Words array & individual word properties*/
+
+var words = [
+    'Laboratory',
+    'Supercilious',
+    'Portmanteau',
+];
+
+var laboratory = {
+    characters: 10,
+};
+
+var portmanteau = {
+    characters: 11,
+};
+
+var supercilious = {
+    characters: 12,
+};
 
 function gameOn() {
     console.log('game is running');
@@ -16,10 +35,7 @@ function gameOn() {
         console.log(answer);
     }
 
-
-    
-
-    if(i === 5) {
+    if(i === 6 && !correct) {
         alert('Damn bro, you suck so hard somebody died*/');
 
     }
