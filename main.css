@@ -1,0 +1,9 @@
+.game {
+    float: left;
+    border: 5px solid red;
+}
+
+.bear {
+    float: right;
+    border: 5px solid blue;
+}
