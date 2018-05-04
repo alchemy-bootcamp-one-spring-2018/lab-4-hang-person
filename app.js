@@ -74,13 +74,12 @@ function guess() {
         for(var k = 0; k < wrongArray.length; k++) {
             if(letter === wrongArray[k]) {
                 alert('Already guessed!');
-            }
-            else {
-                wrongArray.push(letter);
-                var wrongLetters = wrongArray.join(' ');
-                document.getElementById('wrong-letters').textContent = wrongLetters;
+                wrongArray.splice(letter, 1);
             }
         }
+        wrongArray.push(letter);
+        var wrongLetters = wrongArray.join(' ');
+        document.getElementById('wrong-letters').textContent = wrongLetters;
         guessCount++;
         // add letter to guessed (wrong) section
 
