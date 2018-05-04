@@ -26,26 +26,14 @@ function getRandomIndex(max) {
 
 // 1. Create a `guess` function that
 
-//     1. Checks against letters already guessed and alerts or messages user that letter has already
-//     been guessed
 //     1. Otherwise:
-//         1. Letter is added to guessed letters
-//         1. Guess count is incremented
-//         1. If word includes the letter (hint: string has an `includes` method):
-//             1. Letter(s) are revealed in Word to Guess
-//             1. Check for win condition (every letter of word is in guessed letters)
 //         1. If word does not include the letter:
 //             1. Add a body part to the gallows
-//             1. Check for lose condition (guesses count is max number of body parts)
-//         1. If win or lose condition:
-//             1. message the user that they won or ~~died~~ lost
-//             1. Disable the Guess Letter button (button.disabled = true)
 var guessCount = 0;
 
 function guess() {
     var letterGuessed = document.getElementById('letter-input');
     var letter = letterGuessed.value;
-    // var newWordArray = wordArray;
     console.log('user guessed', letter);
 
     document.getElementById('letter-input').value = '';
@@ -56,7 +44,6 @@ function guess() {
     }
     else if(word.includes(letter.toLowerCase())) {
         console.log('woo');
-        // add letter to fill-in-the-blank (correct) section
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
                 newArray[j] = letter;
@@ -65,9 +52,9 @@ function guess() {
         blankWord = newArray.join(' ');
         document.getElementById('word-1').textContent = blankWord;
 
-        // check to see if word is complete and game is won!
         if(blankWord.includes('_') === false) {
             alert('YOU WON!!!!');
+            document.getElementById('guess-button').disabled = true;
         }
     }
     else {
@@ -75,26 +62,24 @@ function guess() {
             if(letter === wrongArray[k]) {
                 alert('Already guessed!');
                 wrongArray.splice(letter, 1);
+                guessCount--;
             }
         }
         wrongArray.push(letter);
         var wrongLetters = wrongArray.join(' ');
         document.getElementById('wrong-letters').textContent = wrongLetters;
         guessCount++;
-        // add letter to guessed (wrong) section
 
         // add body part to hang person
-        //max guess is 6 (6 body parts)
-        // check to see if hang person is complete and game is lost!
+        // document.getElementById('').textContent = '';
         if(guessCount === 6) {
-            // if lost, say so
             alert('You lose :(');
+            document.getElementById('guess-button').disabled = true;
         }
     }
+    console.log(guessCount);
 }
 
-
-// 1. Call 'loadWord()` to start things
 loadWord();
 console.log(word);
 var newArray = [];

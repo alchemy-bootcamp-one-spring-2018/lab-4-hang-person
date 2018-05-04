@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <h1>Hang Person Game</h1>
     <section id="1">
         <!--hang person figure-->
     </section>
@@ -14,15 +15,14 @@
         <p id="word-1"></p>
     </section>
 
-    <section id="3">
-        <!--letters guessed (wrong)-->   
-        <p id="wrong-letters"></p>
-    </section>
-
-
     <section id="4">
         <input id="letter-input">
-        <button onclick="guess()">Guess Letter</button>
+        <button id="guess-button" onclick="guess()">Guess Letter</button>
+    </section>
+
+    <section id="3">
+            <h3>Guessed Letters</h3>
+            <p id="wrong-letters"></p>
     </section>
 
     <script src="words.js"></script>
