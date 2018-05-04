@@ -1,11 +1,11 @@
 
-
+/* eslint-disable-next-line */
 var wordList = [
-    'pencpil',
+    'pencil',
     'paper',
     'charcoal',
-    'ipaint',
-    'eraserr',
-    'maraker'
+    'paint',
+    'easel',
+    'canvas'
 ];
 
