@@ -1,8 +1,5 @@
 'use strict';
-/* exported gameOn, words, attempts*/
-
-/* Words array & individual word properties*/
-
+/* exported gameOn, words, attempts, loadWord, gameWord, wordArray*/
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIndex(max) {
@@ -12,14 +9,21 @@ function getRandomIndex(max) {
 
 // console.log(getRandomIndex(words));
 
+var gameWord = words[index].split();
+var index = getRandomIndex(words.length);
 
 
 function loadWord(){
     var index = getRandomIndex(words.length);
-    console.log('index is', index);
     var gameWord = words[index];
-    console.log('gameWord is', gameWord);
+    console.log('index is', index);
 }
+
+function wordArray(){
+    gameWord.split();
+}
+console.log('gameWord is', gameWord);
+
 
 
 
