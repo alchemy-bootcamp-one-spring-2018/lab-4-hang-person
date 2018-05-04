@@ -12,14 +12,18 @@ function letterGuess() {
     if (displayLetters.includes(guessed)){
         alert('You already guessed ' + guessed + ', please try another');
         displayLetter += "";
-    } else {
+    } 
+    // else if (displayLetters.includes([A-Za-z])) {
+    //     alert ("You need to use letters");
+    // }
+    else {
         displayLetters += guessed + ", ";
     }
     
     //changes the text on screen for display
     var p = document.getElementById('inputDisplay');
     p.textContent = displayLetters;
-}
+} 
 
 function getWord(pastaWords){
     //random number the length of the string
@@ -31,13 +35,15 @@ function getWord(pastaWords){
     var p1 = document.getElementById('wordOnScreen');
     p1.textContent = pasta;
     
-    var pastaSpl = pasta.split("");
-    console.log(pastaSpl);
-    console.log(pastaSpl.includes(guessed));
+
+    function makeArrayPasta() {
+        var pastaSpl = pasta.split("");
+        console.log(pastaSpl);
+        console.log(pastaSpl.includes(guessed));
+
+
+    }
 }
-getWord(words);
-var acquiredWord = getWord.value;
-console.log();
 
 function matchLetter(){
 
@@ -49,8 +55,6 @@ function randomNumber(amount){
     return Math.floor(Math.random(amount) * words.length);
 
 }
-
-
 
 
 // still trying to get this working wordLength and testSTRING VAR
