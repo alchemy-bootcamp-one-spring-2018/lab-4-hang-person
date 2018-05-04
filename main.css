@@ -1,3 +1,7 @@
+img {
+   transform: none; 
+}
+
 #section-one {
     position: relative;
 }
@@ -6,42 +10,42 @@
     
 }
 
-#head {
+#person-0 {
     width: 100px;
     position: absolute;
     top: 150px;
     left: 298px;
 }
 
-#body {
+#person-1 {
     height: 125px;
     position: absolute;
     top: 235px;
     left: 340px;
 }
 
-#left-arm {
+#person-2 {
     height: 75px;
     position: absolute;
     top: 210px;
     left: 267px;
 }
 
-#right-arm {
+#person-3 {
     height: 100px;
     position: absolute;
     top: 200px;
     left: 345px;
 }
 
-#left-leg {
+#person-4 {
     height: 100px;
     position: absolute;
     top: 329px;
     left: 275px;
 }
 
-#right-leg {
+#person-5 {
     height: 75px;
     position: absolute;
     top: 350px;

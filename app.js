@@ -68,10 +68,14 @@ function guess() {
         wrongArray.push(letter);
         var wrongLetters = wrongArray.join(' ');
         document.getElementById('wrong-letters').textContent = wrongLetters;
+        
+        // add body part to hang person
+        
+        var div = document.getElementById('person-' + guessCount);
+        div.classList.toggle('hidden');
+
         guessCount++;
 
-        // add body part to hang person
-        // document.getElementById('').textContent = '';
         if(guessCount === 6) {
             alert('You lose :(');
             document.getElementById('guess-button').disabled = true;
