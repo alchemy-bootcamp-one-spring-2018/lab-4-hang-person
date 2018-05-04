@@ -9,27 +9,27 @@ function getRandomIndex(max) {
 
 // console.log(getRandomIndex(words));
 
-var gameWord = words[index].split();
-var index = getRandomIndex(words.length);
-
-
-function loadWord(){
+function gameOn() {
+    console.log('game is running');
     var index = getRandomIndex(words.length);
     var gameWord = words[index];
-    console.log('index is', index);
+    console.log('gameWord is', gameWord);
+
+
+    // function loadWord(){
+    //     var index = getRandomIndex(words.length);
+    //     var gameWord = words[index];
+    //     console.log('index is', index);
+    // }
+
+    // function wordArray(){
+    //     gameWord.split();
+    // }
 }
 
-function wordArray(){
-    gameWord.split();
-}
-console.log('gameWord is', gameWord);
 
 
 
-
-
-// function gameOn() {
-//     console.log('game is running');
 
 //     var attempts = 6;
 //     var answer;
