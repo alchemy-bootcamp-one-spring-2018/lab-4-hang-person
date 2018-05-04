@@ -25,7 +25,7 @@ function getRandomIndex(max) {
 
 
 // 1. Create a `guess` function that
-/
+
 //     1. Checks against letters already guessed and alerts or messages user that letter has already
 //     been guessed
 //     1. Otherwise:
@@ -60,20 +60,29 @@ function guess() {
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
                 newArray[j] = letter;
-                // check to see if word is complete and game is won!
             }
         }
         blankWord = newArray.join(' ');
         document.getElementById('word-1').textContent = blankWord;
 
+        // check to see if word is complete and game is won!
         if(blankWord.includes('_') === false) {
             alert('YOU WON!!!!');
         }
     }
     else {
+        for(var k = 0; k < wrongArray.length; k++) {
+            if(letter === wrongArray[k]) {
+                alert('Already guessed!');
+            }
+            else {
+                wrongArray.push(letter);
+                var wrongLetters = wrongArray.join(' ');
+                document.getElementById('wrong-letters').textContent = wrongLetters;
+            }
+        }
         guessCount++;
         // add letter to guessed (wrong) section
-        document.getElementById('wrong-' + j);
 
         // add body part to hang person
         //max guess is 6 (6 body parts)
@@ -91,6 +100,7 @@ loadWord();
 console.log(word);
 var newArray = [];
 var wordArray = word.split('');
+var wrongArray = [];
 
 for(var i = 0; i < wordArray.length; i++) {
     newArray[i] = '_';
