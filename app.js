@@ -1,11 +1,12 @@
 'use strict';
 //getting input from the field
 var userGuess = document.getElementById('guess');
-var guessed = userGuess.value.trim().toLowerCase()
+var guessed = userGuess.value.trim().toLowerCase();
 
 // variable for turning letters into dashes??
 var pastaSpl = [];
-
+var displayArray = [];
+console.log('this is our display array', displayArray);
 //displaying the input letters(behind 1 for some reason)
 var displayLetters = '';
 //guess function
@@ -13,6 +14,9 @@ function letterGuess() {
     console.log("hi there michelle", pastaSpl);
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
+
+
+
     //updates letters in string
     // if(displayLetters.includes(guessed)){
     //     alert('You already guessed ' + guessed + ', please try another');
@@ -30,8 +34,8 @@ function letterGuess() {
     p.textContent = displayLetters;
     console.log(pastaSpl.includes(guessed));
 
-    for (var i = 0; i < pastaSpl.length; i++); {
-        if (pastaSpl.includes(guessed)) {
+    for(var i = 0; i < pastaSpl.length; i++); {
+        if(pastaSpl.includes(guessed)) {
             console.log(pastaSpl.indexOf(guessed)); 
            
         }
@@ -53,11 +57,14 @@ function getWord(pastaWords){
     function makeArrayPasta() {
         pastaSpl = pasta.split('');
         console.log(pastaSpl);
-        var p1 = document.getElementById('wordOnScreen');
-        p1.textContent = pastaSpl;
-
         
-
+        for(var i = 0; i < pastaSpl.length; i++){
+            displayArray.push('-');
+        }   
+        
+        var p1 = document.getElementById('wordOnScreen');
+        p1.textContent = displayArray.join('');
+        
 
     }
     makeArrayPasta();
