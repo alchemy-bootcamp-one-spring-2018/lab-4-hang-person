@@ -5,7 +5,7 @@ var userGuess = document.getElementById('guess');
 var displayLetters = "";
 //guess function
 function letterGuess() {
-    var guessed = userGuess.value.trim();
+    var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
     //updates letters in string
     displayLetters += guessed + " ";
@@ -23,6 +23,10 @@ function getWord(pastaWords){
     console.log(pasta);
     var p1 = document.getElementById('wordOnScreen');
     p1.textContent = pasta;
+    var pastaSpl = pasta.split("");
+    console.log(pastaSpl);
+    console.log(pastaSpl.includes('userGuess'))
+    console.log();
 
 
     // var choices = document.getElementById('words');
@@ -36,6 +40,8 @@ function randomNumber(amount){
     return Math.floor(Math.random(amount) * words.length);
 
 }
+
+
 
 
 // still trying to get this working wordLength and testSTRING VAR
