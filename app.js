@@ -44,6 +44,8 @@ function getRandomIndex(max) {
 //             1. message the user that they won or ~~died~~ lost
 //             1. Disable the Guess Letter button (button.disabled = true)
 var guessCount = 0;
+var wordArray = word.split('');
+var newWordArray = [...wordArray];
 
 function guess() {
     var letterGuessed = document.getElementById('letter-input');
@@ -56,17 +58,16 @@ function guess() {
     else if(word.includes(letter.toLowerCase())) {
         console.log('woo');
         // add letter to fill-in-the-blank (correct) section
-        var wordArray = word.split('');
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
                 document.getElementById('letter-' + j).textContent = letter;
-                // wordArray.splice(j, 1);
-            }
-        }
-        // check to see if word is complete and game is won!
-        if(wordArray.length === 0) {
-            // if won, say so
-            alert('YOU WON!!!!!!');
+                newWordArray.splice(j, 1);
+                // check to see if word is complete and game is won!
+                if(newWordArray.length === 0) {
+                    // if won, say so
+                    alert('YOU WON!!!!!!');
+                }
+            }  
         }
     }
     else {
