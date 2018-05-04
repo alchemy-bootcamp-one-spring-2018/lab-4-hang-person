@@ -15,18 +15,22 @@ function gameOn() {
     var gameWord = words[index];
     console.log('gameWord is', gameWord);
 
-    function showLetter() {
-        var x = document.getElementById('p');
-        if(x.style.display === 'none') {
-            x.style.display = 'block';
-        }
-        else {
-            x.style.display = 'none';
-
-        }
-    }
+    var wordArray = gameWord.split('');
+    console.log('letters:', wordArray);
 
 
+    // function showLetter() {
+    //     var x = document.getElementById('p');
+    //     if(x.style.display === 'none') {
+    //         x.style.display = 'block';
+    //     }
+    //     else {
+    //         x.style.display = 'none';
+
+    //     }
+    // }
+
+}
 
 
 
@@ -48,7 +52,7 @@ function gameOn() {
     // function wordArray(){
     //     gameWord.split();
     // }
-}
+
 
 
 
