@@ -6,23 +6,27 @@
 </head>
 <body>
     <h1>Hang Person Game</h1>
-    <section id="1">
-        <!--hang person figure-->
-    </section>
+    <section id="section-one">
+        <img id="gallows" src="images/gallows.png" alt="gallows">
 
-    <section id="2">
+        <!--hang person figure-->
+        <img id="head" src="images/head.png" alt="stick figure head">
+        <img id="body" src="images/body.png" alt="stick figure body">
+        <img id="left-arm" src="images/left-arm.png" alt="stick figure arm">
+        <img id="right-arm" src="images/right-arm.png" alt="stick figure arm">
+        <img id="left-leg" src="images/left-leg.png" alt="stick figure leg">
+        <img id="right-leg" src="images/right-leg.png" alt="stick figure leg">
+
         <!--actual fill-in-the-blank section (correct)-->
         <p id="word-1"></p>
     </section>
 
-    <section id="4">
+    <section id="section-two">
         <input id="letter-input">
         <button id="guess-button" onclick="guess()">Guess Letter</button>
-    </section>
 
-    <section id="3">
-            <h3>Guessed Letters</h3>
-            <p id="wrong-letters"></p>
+        <h3>Guessed Letters</h3>
+        <p id="wrong-letters"></p>
     </section>
 
     <script src="words.js"></script>
