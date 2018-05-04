@@ -1,6 +1,7 @@
 'use strict';
 //getting input from the field
 var userGuess = document.getElementById('guess');
+var guessed = userGuess.value.trim().toLowerCase();
 //displaying the input letters(behind 1 for some reason)
 var displayLetters = "";
 //guess function
@@ -8,7 +9,13 @@ function letterGuess() {
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
     //updates letters in string
-    displayLetters += guessed + " ";
+    if (displayLetters.includes(guessed)){
+        alert('You already guessed ' + guessed + ', please try another');
+        displayLetter += "";
+    } else {
+        displayLetters += guessed + ", ";
+    }
+    
     //changes the text on screen for display
     var p = document.getElementById('inputDisplay');
     p.textContent = displayLetters;
@@ -23,16 +30,18 @@ function getWord(pastaWords){
     console.log(pasta);
     var p1 = document.getElementById('wordOnScreen');
     p1.textContent = pasta;
+    
     var pastaSpl = pasta.split("");
     console.log(pastaSpl);
-    console.log(pastaSpl.includes('userGuess'))
-    console.log();
+    console.log(pastaSpl.includes(guessed));
+}
+getWord(words);
+var acquiredWord = getWord.value;
+console.log();
+
+function matchLetter(){
 
 
-    // var choices = document.getElementById('words');
-    // console.log(choices);
-    // var wordChoice = choices[Math.floor(Math.random() * 5)];
-    // console.log(wordChoice);
 }
 
 function randomNumber(amount){
@@ -49,8 +58,7 @@ function wordLength(sample){
     return sample.length;
     console.log(sample.length);
 }
-var testString = getWord(words);
-wordLength('hello');
+getWord(words);
 
 
 // random line test
