@@ -1,5 +1,5 @@
 #section-one {
-
+    position: relative;
 }
 
 #gallows {
@@ -7,29 +7,51 @@
 }
 
 #head {
-
+    width: 100px;
+    position: absolute;
+    top: 150px;
+    left: 298px;
 }
 
 #body {
-
+    height: 125px;
+    position: absolute;
+    top: 235px;
+    left: 340px;
 }
 
 #left-arm {
-
+    height: 75px;
+    position: absolute;
+    top: 210px;
+    left: 267px;
 }
 
 #right-arm {
-
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 345px;
 }
 
 #left-leg {
-
+    height: 100px;
+    position: absolute;
+    top: 329px;
+    left: 275px;
 }
 
 #right-leg {
-
+    height: 75px;
+    position: absolute;
+    top: 350px;
+    left: 320px;
 }
 
 #section-two {
 
+}
+
+.hidden {
+    visibility: hidden;
 }
