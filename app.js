@@ -36,7 +36,10 @@ function stateGame() {
     document.getElementById('guess-button').disabled = false;
     console.log(winCheck);
 }
-
+function toggleBearParts() {
+    var bearParts = document.getElementById('bear-' + guessNumber);
+    bearParts.style.visibility = 'visible';
+}
 function guessLetter() {
     // Collect user input
     var letter = document.getElementById('letter-input').value;
@@ -76,6 +79,7 @@ function guessLetter() {
     // Guess is wrong
     else {
         guessedLetter = guessedLetter + letter;
+        toggleBearParts();
         guessNumber--;
         // User loses
         if(guessNumber === 0) {

@@ -7,10 +7,22 @@ body {
 
 .game {
     border: 5px solid red;
-    width: 50%;
+    flex-grow: 1;
+}
+
+.images {
+    border: 5px solid blue;
+    flex-grow: 1;
+}
+
+.gallows {
+
 }
 
 .bear {
-    border: 5px solid blue;
-    width: 50%;
+    
+}
+
+#bear-6 {
+    visibility: hidden;
 }
