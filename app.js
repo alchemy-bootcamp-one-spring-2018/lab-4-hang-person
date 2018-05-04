@@ -25,15 +25,12 @@ function getRandomIndex(max) {
 
 
 // 1. Create a `guess` function that
-//     1. Is called by the click of the Guess Letter button
-//     1. Reads the letter from the Guess Letter input
-//     1. If '', alerts or messages user that letter is required
+/
 //     1. Checks against letters already guessed and alerts or messages user that letter has already
 //     been guessed
 //     1. Otherwise:
 //         1. Letter is added to guessed letters
 //         1. Guess count is incremented
-//         1. Guess Letter input is set to ''
 //         1. If word includes the letter (hint: string has an `includes` method):
 //             1. Letter(s) are revealed in Word to Guess
 //             1. Check for win condition (every letter of word is in guessed letters)
@@ -51,6 +48,9 @@ function guess() {
     // var newWordArray = wordArray;
     console.log('user guessed', letter);
 
+    document.getElementById('letter-input').value = '';
+    //source: https://stackoverflow.com/questions/5700471/set-value-of-input-using-javascript-function
+
     if(letter === '') {
         alert('Field blank, please type a letter.');
     }
@@ -60,17 +60,15 @@ function guess() {
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
                 newArray[j] = letter;
-                // document.getElementById('letter-' + j).textContent = letter;
-                // newArray = wordArray.slice(j, 1);
-                // // check to see if word is complete and game is won!
-                // if(newArray === wordArray) {
-                //     // if won, say so
-                //     alert('YOU WON!!!!!!');
-                // }
+                // check to see if word is complete and game is won!
             }
         }
         blankWord = newArray.join(' ');
         document.getElementById('word-1').textContent = blankWord;
+
+        if(blankWord.includes('_') === false) {
+            alert('YOU WON!!!!');
+        }
     }
     else {
         guessCount++;
