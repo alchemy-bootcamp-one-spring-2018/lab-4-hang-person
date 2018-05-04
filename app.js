@@ -13,7 +13,7 @@ function randomState() {
 var selectedState;
 var stateLength;
 var winCheck;
-var guessNumber = 0;
+var guessNumber = 6;
 var guessedLetter = '';
 
 function stateGame() {
@@ -37,39 +37,52 @@ function stateGame() {
 }
 
 function guessLetter() {
-    var letter = document.getElementById('letterInput').value;
-    document.getElementById('letterInput').value = '';
+    // Collect user input
+    var letter = document.getElementById('letter-input').value;
+    // Clear input
+    document.getElementById('letter-input').value = '';
     letter = letter.toLowerCase();
-
-    console.log(guessedLetter);
-    // = document.getElementById('guessed-letter');
-    //guessedLetter.textContent += letter + ' ';
-    if(guessedLetter.includes(letter) === true) {
-        var again = document.getElementById('game-end-response');
-        again.textContent = 'Another letter';
+    
+    var response = document.getElementById('game-end-response');
+    response.textContent = '';
+    var alpha = /^[A-Za-z]+$/;
+    console.log(alpha); 
+    if(letter === '') {
+   // if(letter != alpha) {
+        response.textContent = 'Pls enter a letter'; 
     }
+    // Check for duplicate letter
+    else if(guessedLetter.includes(letter) === true) {
+        response.textContent = 'Another letter';
+    }
+    // Check if letter matches State name
     else if(selectedState.includes(letter) === true) {
+        //  Add letter to screen
+        //  Add letter to Win Checker    
         for(var i = 0; i < stateLength; i++) {
             if(letter === selectedState[i]) {
                 document.getElementById('letter-' + i).textContent = letter;
                 winCheck[i] = letter;
             }
         }
+        // User selected all correct letters
         if(selectedState === winCheck.join('')) {
-            var win = document.getElementById('game-end-response');
-            win.textContent = 'You win!';
+            response.textContent = 'You win!';
         }
-        console.log(winCheck);
+        //  Add user input to guessLetter
         guessedLetter = guessedLetter + letter;
     }
+    // Guess is wrong
     else {
         guessedLetter = guessedLetter + letter;
-        guessNumber++;
-        console.log(guessNumber);
-        if(guessNumber === 6) {
-            var lose = document.getElementById('game-end-response');
-            lose.textContent = 'You lose!';
+        guessNumber--;
+        // User loses
+        if(guessNumber === 0) {
+            response.textContent = 'You lose!';
+            document.getElementById('guess-button').disabled = true;
         }
     }
+    var guesses = document.getElementById('guessed-letters');
+    guesses.textContent = guessedLetter.split('').join(', ');
 
 }
