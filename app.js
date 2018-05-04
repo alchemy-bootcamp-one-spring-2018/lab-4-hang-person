@@ -3,6 +3,8 @@
 //Global Variables
 var lettersGuessed;
 var guessCount;
+var imageNumber = 1;
+var boneYard = [];
 
 
 //taken from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -51,10 +53,11 @@ function guess() {
         //This runs if the guess is wrong
         wrongGuesses.push(letterGuess);
         console.log('wrong guesses:', wrongGuesses);
-        // TO DO: add to boneyard
-        // TO DO: add a body part
-        // TO DO: no need to continue
-
+        // add to boneyard
+        boneYard.push (letterGuess);
+        // This advances to the next image
+        imageNumber ++;
+        document.getElementById('image').src = 'hang' + imageNumber + '.jpg';
     }
     else {
         //this runs if the guess was correct
@@ -69,7 +72,7 @@ function guess() {
     }
     //this occurs at the end of every guess
     document.getElementById('guessInput').value = '';
-
+    document.getElementById('boneYardDisplay').textContent = boneYard;
 
 
 
