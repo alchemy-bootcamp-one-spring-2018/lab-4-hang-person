@@ -33,6 +33,7 @@ function stateGame() {
         winCheck += '_';
     }
     winCheck = winCheck.split('');
+    document.getElementById('guess-button').disabled = false;
     console.log(winCheck);
 }
 
@@ -45,10 +46,10 @@ function guessLetter() {
     
     var response = document.getElementById('game-end-response');
     response.textContent = '';
-    var alpha = /^[A-Za-z]+$/;
-    console.log(alpha); 
+    //var alpha = /^[A-Za-z]+$/;
+    //console.log(alpha); 
     if(letter === '') {
-   // if(letter != alpha) {
+    // if(letter != alpha) {
         response.textContent = 'Pls enter a letter'; 
     }
     // Check for duplicate letter
