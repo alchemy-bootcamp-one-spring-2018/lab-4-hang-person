@@ -1,9 +1,16 @@
+body {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 .game {
-    float: left;
     border: 5px solid red;
+    width: 50%;
 }
 
 .bear {
-    float: right;
     border: 5px solid blue;
+    width: 50%;
 }
