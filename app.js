@@ -44,12 +44,11 @@ function getRandomIndex(max) {
 //             1. message the user that they won or ~~died~~ lost
 //             1. Disable the Guess Letter button (button.disabled = true)
 var guessCount = 0;
-var wordArray = word.split('');
-var newWordArray = [...wordArray];
 
 function guess() {
     var letterGuessed = document.getElementById('letter-input');
     var letter = letterGuessed.value;
+    // var newWordArray = wordArray;
     console.log('user guessed', letter);
 
     if(letter === '') {
@@ -60,15 +59,18 @@ function guess() {
         // add letter to fill-in-the-blank (correct) section
         for(var j = 0; j < wordArray.length; j++) {
             if(letter === wordArray[j]) {
-                document.getElementById('letter-' + j).textContent = letter;
-                newWordArray.splice(j, 1);
-                // check to see if word is complete and game is won!
-                if(newWordArray.length === 0) {
-                    // if won, say so
-                    alert('YOU WON!!!!!!');
-                }
-            }  
+                newArray[j] = letter;
+                // document.getElementById('letter-' + j).textContent = letter;
+                // newArray = wordArray.slice(j, 1);
+                // // check to see if word is complete and game is won!
+                // if(newArray === wordArray) {
+                //     // if won, say so
+                //     alert('YOU WON!!!!!!');
+                // }
+            }
         }
+        blankWord = newArray.join(' ');
+        document.getElementById('word-1').textContent = blankWord;
     }
     else {
         guessCount++;
@@ -89,3 +91,12 @@ function guess() {
 // 1. Call 'loadWord()` to start things
 loadWord();
 console.log(word);
+var newArray = [];
+var wordArray = word.split('');
+
+for(var i = 0; i < wordArray.length; i++) {
+    newArray[i] = '_';
+}
+
+var blankWord = newArray.join(' ');
+document.getElementById('word-1').textContent = blankWord;
