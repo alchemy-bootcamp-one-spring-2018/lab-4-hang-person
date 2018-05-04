@@ -1,29 +1,41 @@
 'use strict';
 //getting input from the field
 var userGuess = document.getElementById('guess');
-var guessed = userGuess.value.trim().toLowerCase();
+var guessed = userGuess.value.trim().toLowerCase()
+
+// variable for turning letters into dashes??
+var pastaSpl = [];
+
 //displaying the input letters(behind 1 for some reason)
 var displayLetters = '';
 //guess function
 function letterGuess() {
+    console.log("hi there michelle", pastaSpl);
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
     //updates letters in string
-    if(displayLetters.includes(guessed)){
-        alert('You already guessed ' + guessed + ', please try another');
-        displayLetters += '';
-    }
+    // if(displayLetters.includes(guessed)){
+    //     alert('You already guessed ' + guessed + ', please try another');
+    //     displayLetters += '';
+    // }
     // else if (displayLetters.includes([A-Za-z])) {
     //     alert ("You need to use letters");
     // }
-    else {
-        displayLetters += guessed + ', ';
-    }
+    // else {
+    //     displayLetters += guessed + ', ';
+    // }
 
     //changes the text on screen for display
     var p = document.getElementById('inputDisplay');
     p.textContent = displayLetters;
     console.log(pastaSpl.includes(guessed));
+
+    for (var i = 0; i < pastaSpl.length; i++); {
+        if (pastaSpl.includes(guessed)) {
+            console.log(pastaSpl.indexOf(guessed)); 
+           
+        }
+    }
 }
 
 function getWord(pastaWords){
@@ -36,12 +48,14 @@ function getWord(pastaWords){
     // var p1 = document.getElementById('wordOnScreen');
     // p1.textContent = pasta;
 
+  
 
     function makeArrayPasta() {
-        var pastaSpl = pasta.split('');
+        pastaSpl = pasta.split('');
         console.log(pastaSpl);
         var p1 = document.getElementById('wordOnScreen');
         p1.textContent = pastaSpl;
+
         
 
 
