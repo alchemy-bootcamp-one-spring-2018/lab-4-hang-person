@@ -2,12 +2,11 @@
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
-
+var displayArray = []; 
 // variable for turning letters into dashes??
 var pastaSpl = [];
-var displayArray = [];
-console.log('this is our display array', displayArray);
-//displaying the input letters(behind 1 for some reason)
+
+
 var displayLetters = '';
 //guess function
 function letterGuess() {
@@ -18,16 +17,16 @@ function letterGuess() {
 
 
     //updates letters in string
-    // if(displayLetters.includes(guessed)){
-    //     alert('You already guessed ' + guessed + ', please try another');
-    //     displayLetters += '';
-    // }
+    if(displayLetters.includes(guessed)){
+        alert('You already guessed ' + guessed + ', please try another');
+        displayLetters += '';
+    }
     // else if (displayLetters.includes([A-Za-z])) {
     //     alert ("You need to use letters");
     // }
-    // else {
-    //     displayLetters += guessed + ', ';
-    // }
+    else {
+        displayLetters += guessed + ', ';
+    }
 
     //changes the text on screen for display
     var p = document.getElementById('inputDisplay');
@@ -37,10 +36,31 @@ function letterGuess() {
     for(var i = 0; i < pastaSpl.length; i++); {
         if(pastaSpl.includes(guessed)) {
             console.log(pastaSpl.indexOf(guessed)); 
+            var arrayPosition = pastaSpl.indexOf(guessed);
+            displayArray[arrayPosition] = guessed;
+            console.log(displayArray);
+            console.log('this is our display array', displayArray);
+            var p2 = document.getElementById("wordOnScreen");
+            p2.textContent = displayArray.join('');
            
         }
     }
 }
+var maxGuesses = 0;
+function maximumGuesses() {
+        if (pastaSpl.includes(guessed) && maxGuesses === 0) {
+            document.getElementById("head").removeAttribute("hidden");
+            maxGuesses++;
+        } else //(pastaSpl.includes(guessed) && maxGuesses === 1) 
+        {
+                document.getElementById("body").removeAttribute("hidden");
+                maxGuesses++;
+
+            }
+        }
+
+maximumGuesses();
+
 
 function getWord(pastaWords){
     //random number the length of the string
