@@ -2,33 +2,17 @@
 /* globals listOfWords */
 'use strict';
 
-// ### App
-
-// Create a file `app.js` that exposes functions for running the game.
-// Don't forget to include a script tag with `src` for this file.
-
-// 1. Create a `loadWord` function that
-//     1. Gets a random integer between 0 (inclusive) and length of word (exclusive)
-//     1. Selects the word from the array with that index and stores for use by the guess function (word
-//     will need to be scoped in way guess function can read.
-
 var word = '';
 function loadWord() {
     var index = getRandomIndex(listOfWords.length);
     word = listOfWords[index];
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+//source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-
-// 1. Create a `guess` function that
-
-//     1. Otherwise:
-//         1. If word does not include the letter:
-//             1. Add a body part to the gallows
 var guessCount = 0;
 
 function guess() {
@@ -70,7 +54,6 @@ function guess() {
         document.getElementById('wrong-letters').textContent = wrongLetters;
 
         // add body part to hang person
-
         var div = document.getElementById('person-' + guessCount);
         div.classList.toggle('hidden');
 
