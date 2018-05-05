@@ -7,53 +7,69 @@ img {
 }
 
 #gallows {
-    
+    height: 350px;    
 }
 
 #person-0 {
-    width: 100px;
+    width: 50px;
     position: absolute;
-    top: 150px;
-    left: 298px;
+    top: 97px;
+    left: 191px;
 }
 
 #person-1 {
-    height: 125px;
+    height: 75px;
     position: absolute;
-    top: 235px;
-    left: 340px;
+    top: 140px;
+    left: 212px;
 }
 
 #person-2 {
-    height: 75px;
+    height: 50px;
     position: absolute;
-    top: 210px;
-    left: 267px;
+    top: 120px;
+    left: 160px;
 }
 
 #person-3 {
-    height: 100px;
+    height: 75px;
     position: absolute;
-    top: 200px;
-    left: 345px;
+    top: 105px;
+    left: 215px;
 }
 
 #person-4 {
-    height: 100px;
+    height: 70px;
     position: absolute;
-    top: 329px;
-    left: 275px;
+    top: 190px;
+    left: 170px;
 }
 
 #person-5 {
-    height: 75px;
+    height: 47px;
     position: absolute;
-    top: 350px;
-    left: 320px;
+    top: 205px;
+    left: 200px;
 }
 
-#section-two {
+#section-two, #section-one, h1 {
+    margin-left: 50px;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#word-1 {
+    font-size: 40px;
+}
+
+#wrong-letters {
+    color: red;
+}
+
+#end-game {
+    color: blue;
 }
 
 .hidden {

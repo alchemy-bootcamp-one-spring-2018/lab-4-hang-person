@@ -53,7 +53,7 @@ function guess() {
         document.getElementById('word-1').textContent = blankWord;
 
         if(blankWord.includes('_') === false) {
-            alert('YOU WON!!!!');
+            document.getElementById('end-game').textContent = 'YOU WON!!! Refresh to play again.';
             document.getElementById('guess-button').disabled = true;
         }
     }
@@ -68,20 +68,20 @@ function guess() {
         wrongArray.push(letter);
         var wrongLetters = wrongArray.join(' ');
         document.getElementById('wrong-letters').textContent = wrongLetters;
-        
+
         // add body part to hang person
-        
+
         var div = document.getElementById('person-' + guessCount);
         div.classList.toggle('hidden');
 
         guessCount++;
 
         if(guessCount === 6) {
-            alert('You lose :(');
+            document.getElementById('end-game').textContent = 'Sorry, but you lost! Better luck next time! Refresh to try again.';
             document.getElementById('guess-button').disabled = true;
         }
     }
-    console.log(guessCount);
+    document.getElementById('guess-count').textContent = 'Guesses made: ' + guessCount + '/6';
 }
 
 loadWord();

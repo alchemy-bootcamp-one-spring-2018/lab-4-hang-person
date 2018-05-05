@@ -16,17 +16,17 @@
         <img id="person-3" class="hidden" src="images/right-arm.png" alt="stick figure arm">
         <img id="person-4" class="hidden" src="images/left-leg.png" alt="stick figure leg">
         <img id="person-5" class="hidden" src="images/right-leg.png" alt="stick figure leg">
-
-        <!--actual fill-in-the-blank section (correct)-->
-        <p id="word-1"></p>
     </section>
-
+    
     <section id="section-two">
+        <p id="word-1"></p>
         <input id="letter-input">
         <button id="guess-button" onclick="guess()">Guess Letter</button>
+        <p id="end-game"></p>
 
-        <h3>Guessed Letters</h3>
+        <h3>Wrong Letters</h3>
         <p id="wrong-letters"></p>
+        <p id="guess-count">Guesses made:</p>
     </section>
 
     <script src="words.js"></script>
