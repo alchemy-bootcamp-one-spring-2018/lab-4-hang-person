@@ -5,6 +5,7 @@ var guessed = userGuess.value.trim().toLowerCase();
 var displayArray = []; 
 // variable for turning letters into dashes??
 var pastaSpl = [];
+var maxGuesses = 0;
 
 
 var displayLetters = '';
@@ -41,23 +42,37 @@ function letterGuess() {
             console.log(displayArray);
             console.log('this is our display array', displayArray);
             var p2 = document.getElementById("wordOnScreen");
-            p2.textContent = displayArray.join('');
-           
+            p2.textContent = displayArray.join('');   
+        } else {
+            maxGuesses++;
+            console.log('amount for', maxGuesses);
+            if(maxGuesses === 1) {
+                document.getElementById('head').removeAttribute("hidden");
+            } else if(maxGuesses === 2){
+                document.getElementById('body').removeAttribute("hidden");
+            } else if(maxGuesses === 3){
+                document.getElementById('left-arm').removeAttribute("hidden");
+            } else if (maxGuesses === 4){
+                document.getElementById('right-arm').removeAttribute("hidden");
+            } else if (maxGuesses === 5){
+                document.getElementById('left-leg').removeAttribute("hidden");
+            } else if(maxGuesses === 6){
+                document.getElementById('right-leg').removeAttribute("hidden");
+            } else {
+                alert('You lost.');
+                document.getElementById('submit').disabled = true;
+            }
         }
     }
 }
-var maxGuesses = 0;
-function maximumGuesses() {
-        if (pastaSpl.includes(guessed) && maxGuesses === 0) {
-            document.getElementById("head").removeAttribute("hidden");
-            maxGuesses++;
-        } else //(pastaSpl.includes(guessed) && maxGuesses === 1) 
-        {
-                document.getElementById("body").removeAttribute("hidden");
-                maxGuesses++;
 
-            }
-        }
+function maximumGuesses() {
+    if(maxGuesses === 1) {
+        document.getElementById('head').removeAttribute("hidden");
+    } else if(maxGuesses === 2) {
+        document.getElementById('body').removeAttribute("hidden");
+    }
+}
 
 maximumGuesses();
 
@@ -72,7 +87,7 @@ function getWord(pastaWords){
     // var p1 = document.getElementById('wordOnScreen');
     // p1.textContent = pasta;
 
-  
+    maximumGuesses();
 
     function makeArrayPasta() {
         pastaSpl = pasta.split('');
