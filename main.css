@@ -1,8 +1,3 @@
-body {
-    
-    
-}
-
 h1 {
     font-size: 4em;
 }
@@ -18,7 +13,7 @@ button, input {
 #guess {
     position:absolute;
     top: 400px;
-    left: 20px;
+
 }
 
 #guessed-letters {
@@ -31,17 +26,16 @@ button, input {
 
 
 .game {
-    border: 5px solid red;
+    border: 5px solid black;
     background: #feb315;
     float: left;
     width: 700px;
     height: 700px;
     box-sizing: border-box;
-
+    padding-left: 30px;
 }
 
 .images {
-    border: 5px solid blue;
     float: left;
     width: 700px;
     height: 700px;
@@ -61,44 +55,44 @@ button, input {
 }
 
 #bear-6 {
-   /* visibility: hidden; */
+   visibility: hidden;
    position: absolute;
    z-index: 4;
    top: 190px;
    left: 985px;
 }
 #bear-5 {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     z-index: 4;
     top: 171px;
     left: 970px;
 }
 #bear-4 {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     z-index: 2;
     top: 249px;
     left: 960px;
 }
 #bear-3 {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     z-index: 2;
     top: 249px;
     left: 1060px;
 }
 #bear-2 {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     z-index: 2;
-    top: 171px;
-    left: 970px;
+    top: 307px;
+    left: 996px;
 }
 #bear-1 {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     z-index: 2;
-    top: 171px;
-    left: 970px;
+    top: 307px;
+    left: 1047px;
 }

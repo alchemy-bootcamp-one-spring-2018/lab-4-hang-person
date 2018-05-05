@@ -9,26 +9,41 @@ function randomState() {
     var selectedState = stateList[index];
     return selectedState;
     //return that state
-} 
+}
+
+
 var selectedState;
 var stateLength;
 var winCheck;
 var guessNumber = 6;
 var guessedLetter = '';
-
-function stateGame() {
+var guesses = document.getElementById('guessed-letters');
+var response = document.getElementById('game-end-response');
+function newGame() {
     //clear old lines and letters
     for(var i = 0; i < 13; i++) {
         document.getElementById('letter-' + i).textContent = ' ';
     }
     winCheck = '';
+    response.textContent = '';
+    guesses.textContent = '';
+    guessedLetter = '';
+    for(i = 1; i < 7; i++) {
+        var bearHide = document.getElementById('bear-' + i);
+        bearHide.style.visibility = 'hidden';
+    }
+    guessNumber = 6;
+}
+function stateGame() {
+    newGame();
+
     //get a random state name
     selectedState = randomState().toLowerCase();
     console.log(selectedState);
 
     //underscore for each letter in state
     stateLength = selectedState.length;
-    for(i = 0; i < stateLength; i++) {
+    for(var i = 0; i < stateLength; i++) {
         document.getElementById('letter-' + i).textContent = '_';
         winCheck += '_';
     }
@@ -47,7 +62,7 @@ function guessLetter() {
     document.getElementById('letter-input').value = '';
     letter = letter.toLowerCase();
     
-    var response = document.getElementById('game-end-response');
+
     response.textContent = '';
     //var alpha = /^[A-Za-z]+$/;
     //console.log(alpha); 
@@ -87,7 +102,6 @@ function guessLetter() {
             document.getElementById('guess-button').disabled = true;
         }
     }
-    var guesses = document.getElementById('guessed-letters');
     guesses.textContent = guessedLetter.split('').join(', ');
 
 }
