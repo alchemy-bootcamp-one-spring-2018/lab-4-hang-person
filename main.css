@@ -1,7 +1,6 @@
 body {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
+    
+    
 }
 
 h1 {
@@ -34,12 +33,17 @@ button, input {
 .game {
     border: 5px solid red;
     background: #feb315;
-    flex-grow: 1;
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+
 }
 
 .images {
     border: 5px solid blue;
-    flex-grow: 1;
+    float: right;
+    width: 48%;
+
 }
 
 .gallows {
@@ -51,5 +55,20 @@ button, input {
 }
 
 #bear-6 {
+    visibility: hidden;
+}
+#bear-5 {
+    visibility: hidden;
+}
+#bear-4 {
+    visibility: hidden;
+}
+#bear-3 {
+    visibility: hidden;
+}
+#bear-2 {
+    visibility: hidden;
+}
+#bear-1 {
     visibility: hidden;
 }
