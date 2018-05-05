@@ -34,20 +34,26 @@ button, input {
     border: 5px solid red;
     background: #feb315;
     float: left;
-    width: 48%;
+    width: 700px;
+    height: 700px;
     box-sizing: border-box;
 
 }
 
 .images {
     border: 5px solid blue;
-    float: right;
-    width: 48%;
+    float: left;
+    width: 700px;
+    height: 700px;
+    box-sizing: border-box;
 
 }
 
 .gallows {
-
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+    z-index: 1;
 }
 
 .bear {
@@ -55,20 +61,44 @@ button, input {
 }
 
 #bear-6 {
-    visibility: hidden;
+   /* visibility: hidden; */
+   position: absolute;
+   z-index: 4;
+   top: 190px;
+   left: 985px;
 }
 #bear-5 {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 4;
+    top: 171px;
+    left: 970px;
 }
 #bear-4 {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 2;
+    top: 249px;
+    left: 960px;
 }
 #bear-3 {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 2;
+    top: 249px;
+    left: 1060px;
 }
 #bear-2 {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 2;
+    top: 171px;
+    left: 970px;
 }
 #bear-1 {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 2;
+    top: 171px;
+    left: 970px;
 }
