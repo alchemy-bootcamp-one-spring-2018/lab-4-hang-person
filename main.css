@@ -4,9 +4,36 @@ body {
     justify-content: center;
 }
 
+h1 {
+    font-size: 4em;
+}
+
+button, input {
+    font-size: 2em;
+}
+
+#state-name {
+    font-size: 3em;
+}
+
+#guess {
+    position:absolute;
+    top: 400px;
+    left: 20px;
+}
+
+#guessed-letters {
+    font-size: 1.5em;
+}
+
+#game-end-response {
+    font-size: 3em;
+}
+
 
 .game {
     border: 5px solid red;
+    background: #feb315;
     flex-grow: 1;
 }
 

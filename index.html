@@ -9,7 +9,8 @@
 </head>
 <body>
     <section class="game">
-        <h1>Hang Bear</h1>
+        <h1>Hang Bear Game</h1>
+        <h2>By Carmen &amp; Arthur</h2>
         <button onclick="stateGame()">Click to Start</button>
         <p id="state-name"> 
             <span id = "letter-0"></span>
@@ -26,16 +27,18 @@
             <span id = "letter-11"></span>
             <span id = "letter-12"></span>
         </p>
-        <p id="guess">
-            <input id="letter-input" maxlength="1">
-            <button id="guess-button" onclick="guessLetter()" disabled>Guess</button>
-        </p>
-        <section>
-            <p id="guessed-letters"></p>
-        </section>
-        <section id="game-end">
-            <p id="game-end-response"></p>
-        </section>
+        <div id="guess">
+            <p> 
+                <input id="letter-input" maxlength="1">
+                <button id="guess-button" onclick="guessLetter()" disabled>Guess</button>
+            </p>
+            <section>
+                <p id="guessed-letters"></p>
+            </section>
+            <section id="game-end">
+                <p id="game-end-response"></p>
+            </section>
+        </div>
     </section>
     <section class="images">
         <img class="bear" id="bear-6" src="https://i.imgur.com/Rt7WDz4.png" alt="bear" width="300px">

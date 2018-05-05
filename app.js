@@ -9,7 +9,7 @@ function randomState() {
     var selectedState = stateList[index];
     return selectedState;
     //return that state
-}
+} 
 var selectedState;
 var stateLength;
 var winCheck;
