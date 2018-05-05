@@ -46,12 +46,20 @@ function letterGuess() {
         }
     }
 }
+var maxGuesses = 0;
+function maximumGuesses() {
+        if (pastaSpl.includes(guessed) && maxGuesses === 0) {
+            document.getElementById("head").removeAttribute("hidden");
+            maxGuesses++;
+        } else //(pastaSpl.includes(guessed) && maxGuesses === 1) 
+        {
+                document.getElementById("body").removeAttribute("hidden");
+                maxGuesses++;
 
-for (var maxGuesses = 0; maxGuesses < 7; i++) {
-    
+            }
+        }
 
-
-}
+maximumGuesses();
 
 
 function getWord(pastaWords){
