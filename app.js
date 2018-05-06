@@ -1,3 +1,4 @@
+'use strict';
 /* globals wordList */
 /* exported startGame, guess, */
 
@@ -21,6 +22,7 @@ function loadWord() {
 }
 
 function startGame(){
+
     imageNumber = 1;
     boneYard = [];
     currentWord = loadWord();
@@ -32,7 +34,7 @@ function startGame(){
     document.getElementById('boneYardDisplay').textContent = boneYard;
     document.getElementById('image').src = 'hang' + imageNumber + '.jpg';
 
-    //creating hang-person word place-markers
+    //create string with an underscore for each letter of word to be guessed
     for(var i = 0; i < currentWord.length; i++) {
         visibleWordArray[i] = '_';
     }
@@ -42,21 +44,24 @@ function startGame(){
 
 function guess() {
 
+    // get input from user
     var letterGuess = document.getElementById('guessInput').value;
     console.log ('From guessInput box:', letterGuess);
 
-    //if user does not enter a single letter, stop running.
+    //if user does not enter a single letter, stop running and don't count as a turn
     if(letterGuess.length !== 1) {
         alert('Please enter exactly one letter.');
         return;
     }
-    //checking to see if incorrect answer guess already
+
+    //if letter has already been incorrectly guessed, stop running and don't count as a turn
     if(boneYard.indexOf(letterGuess) !== -1){
         alert('Letter already guessed incorrectly ya dummy.');
         document.getElementById('guessInput').value = '';
         return;
     }
-    //checking to see if answer already correctly guessed before
+
+    //if letter has already been correctly guessed, stop running and don't count as a turn
     if(visibleWordArray.indexOf(letterGuess) !== -1){
         alert('Letter already guessed correctly silly billy.');
         document.getElementById('guessInput').value = '';
@@ -65,17 +70,16 @@ function guess() {
     //now that the guess is valid, add to guess count:
     totalGuesses++;
 
-    //checking if guess is in word and pushing wrong guesses into array
+    //if guess is incorrect, add to boneyard, advance to next image
     if(currentWord.indexOf(letterGuess) === -1){
-        //This runs if the guess is wrong
-        // add to boneyard
         boneYard.push (letterGuess);
         // This advances to the next image
         imageNumber ++;
         document.getElementById('image').src = 'hang' + imageNumber + '.jpg';
     }
+    // if guess is correct, update string of underscores to show letters
     else {
-        //this runs if the guess was correct
+        // loop through currentWord checking each letter against guess
         for(var i = 0; i < currentWord.length; i++) {
             var letter = currentWord[i];
             if(letter === letterGuess) {
@@ -86,22 +90,22 @@ function guess() {
         document.getElementById('wordDisplay').textContent = visibleWordString;
     }
 
-    //this occurs at the end of every guess
+    // code below here occurs at the end of every guess
     document.getElementById('guessInput').value = '';
     document.getElementById('boneYardDisplay').textContent = boneYard;
     document.getElementById('totalGuesses').textContent = ' ' + totalGuesses;
     //check to see if user has won
     if(visibleWordArray.indexOf('_') === -1) {
-        alert('Good Job! You Win! Go get a beer!');
         document.getElementById('guessButton').disabled = true;
         document.getElementById('guessButton').disabled = true;
         document.getElementById('guessInput').disabled = true;
+        alert('Good Job! You Win! Go get a beer!');
     }
     //check to see if user has lost
     if(imageNumber === 5) {
-        alert('You Suck! Go Home! The word was: ' + currentWord + '!');
         document.getElementById('guessButton').disabled = true;
         document.getElementById('guessButton').disabled = true;
         document.getElementById('guessInput').disabled = true;
+        alert('You Suck! Go Home! The word was: ' + currentWord + '!');
     }
 }

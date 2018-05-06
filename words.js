@@ -6,6 +6,8 @@ var wordList = [
     'charcoal',
     'paint',
     'easel',
-    'canvas'
+    'canvas',
+    'brush',
+    'palette'
 ];
 

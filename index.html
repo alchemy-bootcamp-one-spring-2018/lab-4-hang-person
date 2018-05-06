@@ -8,22 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p></p>
     <h1>Art Word Hang Person Game</h1>
     <img id="image" src="hang1.jpg">
-    <p></p>
-    <!-- <p id="target">Test paragraph</p>  -->
+
     <button id="startButton" onclick="startGame()">Run game!</button>
     <p id="tempViewWord"></p>
     
     <input type="text" id="guessInput" disabled="true">
     <button id="guessButton" onclick= "guess()" disabled="true">Guess</button>
 
-    <p id="wordDisplay"></p>
-    <h3>Total Guesses: <span id="totalGuesses"></span></h3>
+    <!-- this is where the blanks/correct guesses will appear -->
+    <h2 id="wordDisplay"></h2>
 
-    <h2>Wrong guesses</h2>
-    <p id="boneYardDisplay"></p>
+    <h3>Total guesses: <span id="totalGuesses"></span></h3>
+
+    <h3>Wrong guesses: <span id="boneYardDisplay"></span></h3>
 
     <script src="words.js"></script>
     <script src="app.js"></script> 
