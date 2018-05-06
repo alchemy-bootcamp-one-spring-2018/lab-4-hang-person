@@ -2,12 +2,12 @@
 'use strict';
 
 var listOfWords = [
-    'powells',
-    'rain',
-    'omsi',
-    'roses',
-    'trimet',
-    'bike',
-    'max',
-    'coffee'
+    'POWELLS',
+    'RAIN',
+    'OMSI',
+    'ROSES',
+    'TRIMET',
+    'BIKE',
+    'MAX',
+    'COFFEE'
 ];
