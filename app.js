@@ -95,9 +95,8 @@ function winOrLose() {
 
     else {
         if(guessesRemaining === -1) {
-            document.getElementById('zero').style.visibility = 'visible';
-            alert('Sorry You LOSE!!!');
             document.getElementById('button').disabled = true;
+            alert('Sorry You LOSE!!!');
 
         }
     }
