@@ -72,8 +72,8 @@ function upDateGameStatus() {
     else {
         lettersGuessed.push(userInput);
         document.getElementById('guessed-letters').textContent = 'Guessed letters: ' + lettersGuessed.join(' ');
-        
-        
+
+
     }
 
     document.getElementById('letters').textContent = correctAnswers.join(' ');
@@ -84,7 +84,7 @@ function upDateGameStatus() {
 function updateImage(){
     document.getElementById('images').src = 'bomb' + guessesRemaining + '.svg';
 }
-
+//Win or lose
 function winOrLose() {
     if(correctAnswers.join('') === randomGameWord.join('')) {
         alert('You win!');
