@@ -1,3 +1,19 @@
 body {background-color: rgb(121, 146, 255);}
 .content {max-width: 500px;
     margin: auto;}
+
+
+    #righthand {
+        max-height: 20%;
+        max-width:  20%;
+    }
+
+    #head {
+        max-height: 20%;
+        max-width: 20%;
+    }
+
+    #lefthand {
+        max-height: 5%;
+        max-width: 5%;
+    }
