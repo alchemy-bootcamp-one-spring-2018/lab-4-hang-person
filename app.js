@@ -30,7 +30,7 @@ function drawGallows() {
 function drawHead(){
     //circle
     ctx.fillStyle = 'pink';
-    ctx.strokeStyle='pink';
+    ctx.strokeStyle= 'pink';
     ctx.lineWidth=8;
     ctx.beginPath();
     ctx.arc(x, y, 40, 0, 2 * Math.PI);
@@ -150,7 +150,6 @@ function letterGuess() {
                 drawRightLeg();
                 setTimeout(youLoseCanvas, 1000);
                 //document.getElementById('right-leg').removeAttribute("hidden");
-            } else {
                 var loseText = document.getElementById('win-lose');
                 loseText.textContent = 'You lose.';
             }
@@ -169,7 +168,6 @@ function maximumGuesses() {
 }
 
 maximumGuesses();
-
 
 function getWord(pastaWords){
     //random number the length of the string
