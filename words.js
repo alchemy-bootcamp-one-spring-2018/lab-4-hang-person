@@ -1,3 +1,5 @@
+
+/* exported wordList */
 'use strict';
 
 var wordList = [
@@ -6,5 +8,8 @@ var wordList = [
     'code',
     'cats',
     'table',
-    'wine'
+    'wine',
+    'html',
+    'teach',
+    'tacos',
 ];
