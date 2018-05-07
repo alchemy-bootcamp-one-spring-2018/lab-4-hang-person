@@ -106,7 +106,7 @@ function checkWin(){
 var displayLetters = '';
 //guess function
 function letterGuess() {
-    console.log("hi there michelle", pastaSpl);
+    console.log("testing test test", pastaSpl);
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
     
@@ -128,17 +128,24 @@ function letterGuess() {
             displayLetters += guessed +', ';
             maxGuesses++;
             if(maxGuesses === 1) {
-                document.getElementById('head').removeAttribute("hidden");
+                drawHead();
+                //document.getElementById('head').removeAttribute("hidden");
             } else if(maxGuesses === 2){
-                document.getElementById('body').removeAttribute("hidden");
+                drawBody();
+                //document.getElementById('body').removeAttribute("hidden");
             } else if(maxGuesses === 3){
-                document.getElementById('left-arm').removeAttribute("hidden");
+                drawLeftArm();
+                //document.getElementById('left-arm').removeAttribute("hidden");
             } else if (maxGuesses === 4){
-                document.getElementById('right-arm').removeAttribute("hidden");
+                drawRightArm();
+                //document.getElementById('right-arm').removeAttribute("hidden");
             } else if (maxGuesses === 5){
-                document.getElementById('left-leg').removeAttribute("hidden");
+                drawLeftLeg();
+                //document.getElementById('left-leg').removeAttribute("hidden");
             } else if(maxGuesses === 6){
-                document.getElementById('right-leg').removeAttribute("hidden");
+                drawRightLeg();
+                setTimeout(youLoseCanvas, 1000);
+                //document.getElementById('right-leg').removeAttribute("hidden");
             } else {
                 var loseText = document.getElementById('win-lose');
                 loseText.textContent = 'You lose.';
@@ -190,7 +197,7 @@ function getWord(pastaWords){
 
 function startGame(){
     document.getElementById('header').removeAttribute("hidden");
-    document.getElementById('gallows').removeAttribute("hidden");
+    //document.getElementById('gallows').removeAttribute("hidden");
     document.getElementById('word').removeAttribute("hidden");
     document.getElementById('guess').removeAttribute("hidden");
     document.getElementById('submit').removeAttribute("hidden");
