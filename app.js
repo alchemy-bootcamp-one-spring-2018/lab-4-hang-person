@@ -1,8 +1,9 @@
+/* exported guessed alpha letterGuess startGame words*/
 'use strict';
 
 // draw body parts and gallows
-var c = document.getElementById("hangCanvas");
-var ctx = c.getContext("2d");
+var c = document.getElementById('hangCanvas');
+var ctx = c.getContext('2d');
 var x = 200;
 var y = 100;
 
@@ -30,17 +31,17 @@ function drawGallows() {
 function drawHead(){
     //circle
     ctx.fillStyle = 'pink';
-    ctx.strokeStyle='pink';
-    ctx.lineWidth=8;
+    ctx.strokeStyle = 'pink';
+    ctx.lineWidth = 8;
     ctx.beginPath();
     ctx.arc(x, y, 40, 0, 2 * Math.PI);
-    ctx.stroke(); 
-    ctx.fill(); 
+    ctx.stroke();
+    ctx.fill();
 }
 
 function drawBody() {
     //draw line body
-    ctx.strokeStyle='pink';
+    ctx.strokeStyle = 'pink';
     ctx.moveTo(x, y + 40);
     ctx.lineTo(x, y + 160);
     ctx.stroke();
@@ -49,7 +50,7 @@ function drawBody() {
 function drawLeftArm() {
     //line left arm
     ctx.moveTo(x, y + 50);
-    ctx.lineTo(x-60, y + 90);
+    ctx.lineTo(x - 60, y + 90);
     ctx.stroke();
 }
 
@@ -75,21 +76,21 @@ function drawRightLeg() {
 }
 
 function youLoseCanvas() {
-    ctx.font = "70px Arial"; 
-    ctx.fillText("YOU LOSE!", 11, 420);
-    ctx.font = "30px Arial"; 
-    ctx.fillText("X  X", 170, 100);
+    ctx.font = '70px Arial';
+    ctx.fillText('YOU LOSE!', 11, 420);
+    ctx.font = '30px Arial';
+    ctx.fillText('X  X', 170, 100);
 }
 
 function youWinCanvas() {
-    ctx.font = "70px Arial";
-    ctx.fillText("YOU WIN!", 36, 420);
+    ctx.font = '70px Arial';
+    ctx.fillText('YOU WIN!', 36, 420);
 }
 
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
-var displayArray = []; 
+var displayArray = [];
 // variable for turning letters into dashes??
 var pastaSpl = [];
 var maxGuesses = 0;
@@ -100,11 +101,11 @@ var maxGuesses = 0;
 function alpha(e) {
     var k;
     document.all ? k = e.keyCode : k = e.which;
-    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8);
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 8);
 }
 
 function checkWin(){
-    if(displayArray.indexOf('-') == -1){
+    if(displayArray.indexOf('-') === -1){
         var winText = document.getElementById('win-lose');
         winText.textContent = 'You win!';
         setTimeout(youWinCanvas, 750);
@@ -120,16 +121,16 @@ function letterGuess() {
     //changes the text on screen for display
     
     for(var i = 0; i < pastaSpl.length; i++); {
-        if(pastaSpl.includes(guessed)) { 
+        if(pastaSpl.includes(guessed)) {
             var arrayPosition = pastaSpl.indexOf(guessed);
             displayArray[arrayPosition] = guessed;
-            var p2 = document.getElementById("wordOnScreen");
+            var p2 = document.getElementById('wordOnScreen');
             p2.textContent = displayArray.join('');
-            checkWin();  
-        } else if (displayLetters.includes(guessed)){
-            alert('you already guessed ' + guessed + ', please try another letter')
+            checkWin();
+        } else if(displayLetters.includes(guessed)){
+            alert('you already guessed ' + guessed + ', please try another letter');
         } else {
-            displayLetters += guessed +', ';
+            displayLetters += guessed + ', ';
             maxGuesses++;
             if(maxGuesses === 1) {
                 drawHead();
@@ -140,10 +141,10 @@ function letterGuess() {
             } else if(maxGuesses === 3){
                 drawLeftArm();
                 //document.getElementById('left-arm').removeAttribute("hidden");
-            } else if (maxGuesses === 4){
+            } else if(maxGuesses === 4){
                 drawRightArm();
                 //document.getElementById('right-arm').removeAttribute("hidden");
-            } else if (maxGuesses === 5){
+            } else if(maxGuesses === 5){
                 drawLeftLeg();
                 //document.getElementById('left-leg').removeAttribute("hidden");
             } else if(maxGuesses === 6){
@@ -162,9 +163,9 @@ function letterGuess() {
 
 function maximumGuesses() {
     if(maxGuesses === 1) {
-        document.getElementById('head').removeAttribute("hidden");
+        document.getElementById('head').removeAttribute('hidden');
     } else if(maxGuesses === 2) {
-        document.getElementById('body').removeAttribute("hidden");
+        document.getElementById('body').removeAttribute('hidden');
     }
 }
 
@@ -186,7 +187,7 @@ function getWord(pastaWords){
         
         for(var i = 0; i < pastaSpl.length; i++){
             displayArray.push('-');
-        }   
+        }
         
         var p1 = document.getElementById('wordOnScreen');
         p1.textContent = displayArray.join('');
@@ -197,15 +198,15 @@ function getWord(pastaWords){
 }
 
 function startGame(){
-    document.getElementById('header').removeAttribute("hidden");
+    document.getElementById('header').removeAttribute('hidden');
     //document.getElementById('gallows').removeAttribute("hidden");
-    document.getElementById('word').removeAttribute("hidden");
-    document.getElementById('guess').removeAttribute("hidden");
-    document.getElementById('submit').removeAttribute("hidden");
-    document.getElementById('wordOnScreen').removeAttribute("hidden");
-    document.getElementById('start').setAttribute("hidden", "hidden");
+    document.getElementById('word').removeAttribute('hidden');
+    document.getElementById('guess').removeAttribute('hidden');
+    document.getElementById('submit').removeAttribute('hidden');
+    document.getElementById('wordOnScreen').removeAttribute('hidden');
+    document.getElementById('start').setAttribute('hidden', 'hidden');
     drawGallows();
-};
+}
 
 function randomNumber(amount){
     //random number generator, adjusts with string length
@@ -213,9 +214,4 @@ function randomNumber(amount){
 
 }
 
-
-// still trying to get this working wordLength and testSTRING VAR
 getWord(words);
-
-
-// random line test

@@ -1,6 +1,6 @@
 'use strict';
 
-var words= [
+var words = [
     'bowtie',
     'elbow',
     'sauce',
