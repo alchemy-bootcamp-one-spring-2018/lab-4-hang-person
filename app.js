@@ -1,6 +1,90 @@
 'use strict';
-//TO DO ADD A WIN CONDITION
-//AND FIX THE UPDATING OF THE GUESSED LETTERS
+
+// draw body parts and gallows
+var c = document.getElementById("hangCanvas");
+var ctx = c.getContext("2d");
+var x = 200;
+var y = 100;
+
+function drawGallows() {
+    // gallows filled triangle
+    ctx.fillStyle = 'steelblue';
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(105, 25);
+    ctx.lineTo(25, 105);
+    ctx.fill();
+    
+ 
+    //line gallows vert    
+    ctx.moveTo(25, 21);
+    ctx.lineTo(25, 450);
+    ctx.stroke();
+ 
+    // line gallows horiz
+    ctx.moveTo(25, 25);
+    ctx.lineTo(250, 25);
+    ctx.stroke();
+}
+
+function drawHead(){
+    //circle
+    ctx.fillStyle = 'pink';
+    ctx.strokeStyle='pink';
+    ctx.lineWidth=8;
+    ctx.beginPath();
+    ctx.arc(x, y, 40, 0, 2 * Math.PI);
+    ctx.stroke(); 
+    ctx.fill(); 
+}
+
+function drawBody() {
+    //draw line body
+    ctx.strokeStyle='pink';
+    ctx.moveTo(x, y + 40);
+    ctx.lineTo(x, y + 160);
+    ctx.stroke();
+}
+
+function drawLeftArm() {
+    //line left arm
+    ctx.moveTo(x, y + 50);
+    ctx.lineTo(x-60, y + 90);
+    ctx.stroke();
+}
+
+function drawRightArm() {
+    //line right arm
+    ctx.moveTo(x, y + 50);
+    ctx.lineTo(x + 60, y + 90);
+    ctx.stroke();
+}
+
+function drawLeftLeg() {
+    //line left leg
+    ctx.moveTo(x, y + 157);
+    ctx.lineTo(x - 40, y + 260);
+    ctx.stroke();
+}
+
+function drawRightLeg() {
+    //line right leg
+    ctx.moveTo(x, y + 157);
+    ctx.lineTo(x + 40, y + 260);
+    ctx.stroke();
+}
+
+function youLoseCanvas() {
+    ctx.font = "70px Arial"; 
+    ctx.fillText("YOU LOSE!", 11, 260);
+    ctx.font = "30px Arial"; 
+    ctx.fillText("X  X", 170, 100);
+}
+
+function youWinCanvas() {
+    ctx.font = "70px Arial";
+    ctx.fillText("YOU WIN!", 36, 260);
+}
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
@@ -13,7 +97,8 @@ function checkWin(){
     if(displayArray.indexOf('-') == -1){
         var winText = document.getElementById('win-lose');
         winText.textContent = 'You won!';
-        document.getElementById('submit').disabled = true;
+        setTimeout(youWinCanvas, 1000);
+        //document.getElementById('submit').disabled = true;
     }
 }
 
