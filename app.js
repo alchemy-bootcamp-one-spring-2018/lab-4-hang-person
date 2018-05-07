@@ -12,7 +12,8 @@ var maxGuesses = 0;
 function checkWin(){
     if(displayArray.indexOf('-') == -1){
         var winText = document.getElementById('win-lose');
-                winText.textContent = 'You won!';
+        winText.textContent = 'You won!';
+        document.getElementById('submit').disabled = true;
     }
 }
 
