@@ -19,7 +19,7 @@
 
     <h2 hidden id="word">Word</h2>
 
-    <input id="guess" onfocus="this.value=''" pattern="[A-Za-z]*" maxlength="1" hidden>
+    <input id="guess" onfocus="this.value=''" onkeypress="return alpha(event)" maxlength="1" hidden>
 
     <button hidden id="submit" onclick="letterGuess()"> Submit
     </button>
