@@ -2,5 +2,7 @@
 
 var words= [
     'bowtie',
-    'elbow'
+    'elbow',
+    'sauce',
+    'boil'
 ];
