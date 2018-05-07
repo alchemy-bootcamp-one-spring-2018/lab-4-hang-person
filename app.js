@@ -1,131 +1,47 @@
 'use strict';
-/* exported gameOn, words, attempts, loadWord, gameWord, wordArray*/
+/* exported gameOn, words, attempts, loadWord, gameWord, wordArray, submitLetter*/
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// chooses a random word from our word array
 function getRandomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max));
 
 }
 
-// console.log(getRandomIndex(words));
+var index = getRandomIndex(words.length);
+var gameWord = words[index];
+var underscore;
+var underscoreArray = [];
+var wordArray = gameWord.split('');
 
+
+// Game start
 function gameOn() {
     console.log('game is running');
-    var index = getRandomIndex(words.length);
-    var gameWord = words[index];
     console.log('gameWord is', gameWord);
-
-    var wordArray = gameWord.split('');
     console.log('letters:', wordArray);
+    console.log(gameWord.length);
 
-    var l = document.getElementById('letter');
-    console.log('input is', l.value);
-
-    for(var i = 0; i < wordArray.length; i++) {
-        if(l.value === wordArray[i]) {
-            console.log('correct!');
-            break;
-
-        }
-    
-        else if(l.value !== wordArray[i]) {
-            console.log('incorrect!');
-
-        }
-        
-        
-        
-        
-        
-        
-        
-        // var array1 = [1, 2, 3];
-
-        // console.log(array1.includes(2));
-        // // expected output: true
-        
-        // var pets = ['cat', 'dog', 'bat'];
-        
-        // console.log(pets.includes('cat'));
-        // // expected output: true
-        
-        // console.log(pets.includes('at'));
-        // // expected output: false
-    
-    
-    
-    
-    
-    
-    
-    
+    for(var i = 0; i < gameWord.length; i++) {
+        underscore = document.getElementById('letter-0');
+        underscoreArray.push(' _');
+        underscore.innerHTML = underscoreArray.join('');
     }
+}
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
-// The includes() method determines whether an array includes a certain element, returning true or false as appropriate.
+var l = document.getElementById('letter');
 
-
-
-
-
-
-
-
-
-
-    // function showLetter() {
-    //     var x = document.getElementById('p');
-    //     if(x.style.display === 'none') {
-    //         x.style.display = 'block';
-    //     }
-    //     else {
-    //         x.style.display = 'none';
-
-    //     }
-    // }
+function submitLetter() {
+    console.log('input is', l.value);
+    var userInput = l.value;
+    document.getElementById(userInput).innerHTML;
 
 }
 
 
 
-
-
-
-
-
-
-
-
-
-// function loadWord(){
-//     var index = getRandomIndex(words.length);
-//     var gameWord = words[index];
-//     console.log('index is', index);
-// }
-
-// function wordArray(){
-//     gameWord.split();
-// }
-
-
-
-
-
-
-//     var attempts = 6;
-//     var answer;
-//     var correct = true;
-
-//     /* Guess Loop*/
-
-//     for(var i = 0; i < 5; i++) {
-//         answer = prompt('enter any letter!');
-//         console.log(answer);
+// function correctLetterPlacer() {
+// for(var j = 0; j < randGameWord.length)
+//     if(userInput === randomGameWord[j]) {
+//         correctAnswers[j] = userInput
 //     }
-
-//     if(i === 6 && !correct) {
-//         alert('Damn bro, you suck so hard somebody died');
-
-//     }
-
-// }
