@@ -21,6 +21,7 @@ function gameOn() {
     console.log('gameWord is', gameWord);
     console.log('letters:', wordArray);
     console.log(gameWord.length);
+    underscoreArray = [];
 
     for(var i = 0; i < gameWord.length; i++) {
         underscore = document.getElementById('letter-0');
@@ -29,13 +30,10 @@ function gameOn() {
     }
 }
 
-var l = document.getElementById('letter');
 
 function submitLetter() {
-    console.log('input is', l.value);
-    var userInput = l.value;
-    document.getElementById(userInput).innerHTML;
-
+    var letter = document.getElementById('userInput').textContent;
+    document.getElementById('userInput').textContent = letter.textContent;
 }
 
 
