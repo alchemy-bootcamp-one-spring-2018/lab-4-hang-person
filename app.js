@@ -30,16 +30,9 @@ function gameOn() {
     }
 }
 
-
 function submitLetter() {
     var letter = document.getElementById('userInput').textContent;
     document.getElementById('userInput').textContent = letter.textContent;
 }
 
 
-
-// function correctLetterPlacer() {
-// for(var j = 0; j < randGameWord.length)
-//     if(userInput === randomGameWord[j]) {
-//         correctAnswers[j] = userInput
-//     }
