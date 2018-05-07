@@ -4,6 +4,7 @@
 var userInput;
 var guessesRemaining = 5;
 var lettersGuessed = [];
+var imageIndex = 0;
 
 // random word generator
 var randomGameWord = wordList[Math.floor(Math.random() * Math.floor(wordList.length))];
@@ -17,18 +18,19 @@ for(var i = 0; i < randomGameWord.length; i++) {
 //displaying game status to user
 upDateGameStatus();
 updateImage();
-
-document.getElementById('guesses').textContent = 'You have ' + (guessesRemaining + 1) + ' guesses to start!';
+document.getElementById('guesses').textContent = 'GOODLUCK';
 
 // grabbing user input and running it through the game loop
 function initiateGame() {
     userInput = document.getElementById('user-input').value.toUpperCase().trim();
     gameLoop();
     upDateGameStatus();
+    updateImage();
     winOrLose();
 
     // clears text box after game runs through loop
     document.getElementById('user-input').value = '';
+
 }
 
 // the beautiful hang person game
@@ -47,10 +49,9 @@ function gameLoop() {
     }
     else {
         guessesRemaining--;
-        updateImage();
+        imageIndex++;
     }
 }
-
 
 // checking position of letters
 function correctLetterPlacer() {
@@ -71,35 +72,35 @@ function upDateGameStatus() {
 
     else {
         lettersGuessed.push(userInput);
-        document.getElementById('guessed-letters').textContent = 'Guessed letters: ' + lettersGuessed.join(' ');
-
-
+        document.getElementById('guessed-letters').textContent = lettersGuessed.join(' ');
     }
 
     document.getElementById('letters').textContent = correctAnswers.join(' ');
-    document.getElementById('guesses').textContent = 'You have ' + (guessesRemaining + 1) + ' guesses remaining. ';
+    document.getElementById('guesses').textContent = 'GUESSES REMAINING: ' + (guessesRemaining + 1);
 
 }
-//Swaps out which bomb is showing!
-function updateImage(){
-    document.getElementById('images').src = 'bomb' + guessesRemaining + '.svg';
-}
-//Win or lose
 function winOrLose() {
     if(correctAnswers.join('') === randomGameWord.join('')) {
         alert('You win!');
         document.getElementById('guesses').textContent = 'Congrats!';
+        document.getElementById('images').src = '7.png';
         document.getElementById('button').disabled = true;
 
     }
 
     else {
         if(guessesRemaining === -1) {
-            document.getElementById('button').disabled = true;
             alert('Sorry You LOSE!!!');
-
+            document.getElementById('guesses').textContent = 'Try again!';
+            document.getElementById('images').src = '8.png';
+            document.getElementById('button').disabled = true;
         }
     }
+}
+
+//Swaps out which bomb is showing!
+function updateImage(){
+    document.getElementById('images').src = imageIndex + 1 + '.png';
 }
 
 //New Game button
