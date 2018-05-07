@@ -94,6 +94,15 @@ var displayArray = [];
 var pastaSpl = [];
 var maxGuesses = 0;
 
+//https://www.codingforums.com/post-a-javascript/10374-accept-only-letters-field.html
+//I'm sorry I copied this but it really was the last bit of functionality left that I couldn't figure out. 
+//I tried so many different things with regular expressions and none of them worked
+function alpha(e) {
+    var k;
+    document.all ? k = e.keyCode : k = e.which;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8);
+}
+
 function checkWin(){
     if(displayArray.indexOf('-') == -1){
         var winText = document.getElementById('win-lose');
