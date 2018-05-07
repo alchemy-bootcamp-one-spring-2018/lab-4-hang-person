@@ -115,19 +115,14 @@ function checkWin(){
 var displayLetters = '';
 //guess function
 function letterGuess() {
-    console.log("testing test test", pastaSpl);
     var guessed = userGuess.value.trim().toLowerCase();
-    console.log(guessed);
     
     //changes the text on screen for display
     
     for(var i = 0; i < pastaSpl.length; i++); {
-        if(pastaSpl.includes(guessed)) {
-            console.log(pastaSpl.indexOf(guessed)); 
+        if(pastaSpl.includes(guessed)) { 
             var arrayPosition = pastaSpl.indexOf(guessed);
             displayArray[arrayPosition] = guessed;
-            console.log(displayArray);
-            console.log('this is our display array', displayArray);
             var p2 = document.getElementById("wordOnScreen");
             p2.textContent = displayArray.join('');
             checkWin();  
@@ -179,10 +174,8 @@ maximumGuesses();
 function getWord(pastaWords){
     //random number the length of the string
     var index = randomNumber(pastaWords.length);
-    console.log(index);
     //actually gets item from array
     var pasta = pastaWords[index];
-    console.log(pasta);
     // var p1 = document.getElementById('wordOnScreen');
     // p1.textContent = pasta;
 
@@ -190,7 +183,6 @@ function getWord(pastaWords){
 
     function makeArrayPasta() {
         pastaSpl = pasta.split('');
-        console.log(pastaSpl);
         
         for(var i = 0; i < pastaSpl.length; i++){
             displayArray.push('-');
