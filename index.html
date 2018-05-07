@@ -7,42 +7,40 @@
     <title>Hang person</title>
 </head>
 <body>
-    <h1>Hang Person</h1>
+    <h1 hidden id="header">Hang Person</h1>
 
-    <h2>The Gallows</h2>
+    <h2 hidden id="gallows">The Gallows</h2>
 
     <p hidden id="head">Head</p>
     <p hidden id="body">Body</p>
     <p hidden id="left-arm">Left Arm</p>
     <p hidden id="right-arm">Right arm</p>
-    <p hidden id="right-leg">Right leg</p>
     <p hidden id="left-leg">Left leg</p>
+    <p hidden id="right-leg">Right leg</p>
 
 
 
 
-    <h2>Word</h2>
+    <h2 hidden id="word">Word</h2>
 
-    <input id="guess" onfocus="this.value=''" maxlength="1">
+    <input id="guess" onfocus="this.value=''" maxlength="1" hidden>
 
 
-    <button id="submit" onclick="letterGuess()"> Submit
+    <button hidden id="submit" onclick="letterGuess()"> Submit
     </button>
+    <button id="start" onclick="startGame()">Start</button>
 
-    <p id="wordOnScreen"></p>
+    <p hidden id="wordOnScreen"></p>
 
     <p id="correctOnScreen"></p>
 
     <p id="inputDisplay"></p>
 
+    <p id="win-lose"></p>
+
     
 <script src = "words.js"></script>
 <script src = "app.js"></script>
 
-
-
-
-
-    
 </body>
 </html>

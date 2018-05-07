@@ -1,4 +1,6 @@
 'use strict';
+//TO DO ADD A WIN CONDITION
+//AND FIX THE UPDATING OF THE GUESSED LETTERS
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
@@ -7,6 +9,12 @@ var displayArray = [];
 var pastaSpl = [];
 var maxGuesses = 0;
 
+function checkWin(){
+    if(displayArray.indexOf('-') == -1){
+        var winText = document.getElementById('win-lose');
+                winText.textContent = 'You won!';
+    }
+}
 
 var displayLetters = '';
 //guess function
@@ -14,26 +22,9 @@ function letterGuess() {
     console.log("hi there michelle", pastaSpl);
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
-
-
-
-    //updates letters in string
-    if(displayLetters.includes(guessed)){
-        alert('You already guessed ' + guessed + ', please try another');
-        displayLetters += '';
-    }
-    // else if (displayLetters.includes([A-Za-z])) {
-    //     alert ("You need to use letters");
-    // }
-    else {
-        displayLetters += guessed + ', ';
-    }
-
+    
     //changes the text on screen for display
-    var p = document.getElementById('inputDisplay');
-    p.textContent = displayLetters;
-    console.log(pastaSpl.includes(guessed));
-
+    
     for(var i = 0; i < pastaSpl.length; i++); {
         if(pastaSpl.includes(guessed)) {
             console.log(pastaSpl.indexOf(guessed)); 
@@ -42,10 +33,13 @@ function letterGuess() {
             console.log(displayArray);
             console.log('this is our display array', displayArray);
             var p2 = document.getElementById("wordOnScreen");
-            p2.textContent = displayArray.join('');   
+            p2.textContent = displayArray.join('');
+            checkWin();  
+        } else if (displayLetters.includes(guessed)){
+            alert('you already guessed ' + guessed + ', please try another letter')
         } else {
+            displayLetters += guessed +', ';
             maxGuesses++;
-            console.log('amount for', maxGuesses);
             if(maxGuesses === 1) {
                 document.getElementById('head').removeAttribute("hidden");
             } else if(maxGuesses === 2){
@@ -59,10 +53,12 @@ function letterGuess() {
             } else if(maxGuesses === 6){
                 document.getElementById('right-leg').removeAttribute("hidden");
             } else {
-                alert('You lost.');
-                document.getElementById('submit').disabled = true;
+                var loseText = document.getElementById('win-lose');
+                loseText.textContent = 'You lose.';
             }
         }
+        var p = document.getElementById('inputDisplay');
+        p.textContent = displayLetters;
     }
 }
 
@@ -105,10 +101,16 @@ function getWord(pastaWords){
     makeArrayPasta();
 }
 
-function matchLetter(){
+function startGame(){
+    document.getElementById('header').removeAttribute("hidden");
+    document.getElementById('gallows').removeAttribute("hidden");
+    document.getElementById('word').removeAttribute("hidden");
+    document.getElementById('guess').removeAttribute("hidden");
+    document.getElementById('submit').removeAttribute("hidden");
+    document.getElementById('wordOnScreen').removeAttribute("hidden");
+    document.getElementById('start').setAttribute("hidden", "hidden");
 
-
-}
+};
 
 function randomNumber(amount){
     //random number generator, adjusts with string length
