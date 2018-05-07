@@ -17,7 +17,7 @@ function drawGallows() {
     
  
     //line gallows vert    
-    ctx.moveTo(25, 21);
+    ctx.moveTo(25, 25);
     ctx.lineTo(25, 450);
     ctx.stroke();
  
@@ -76,14 +76,14 @@ function drawRightLeg() {
 
 function youLoseCanvas() {
     ctx.font = "70px Arial"; 
-    ctx.fillText("YOU LOSE!", 11, 260);
+    ctx.fillText("YOU LOSE!", 11, 420);
     ctx.font = "30px Arial"; 
     ctx.fillText("X  X", 170, 100);
 }
 
 function youWinCanvas() {
     ctx.font = "70px Arial";
-    ctx.fillText("YOU WIN!", 36, 260);
+    ctx.fillText("YOU WIN!", 36, 420);
 }
 
 //getting input from the field
@@ -97,8 +97,8 @@ var maxGuesses = 0;
 function checkWin(){
     if(displayArray.indexOf('-') == -1){
         var winText = document.getElementById('win-lose');
-        winText.textContent = 'You won!';
-        setTimeout(youWinCanvas, 1000);
+        winText.textContent = 'You win!';
+        setTimeout(youWinCanvas, 750);
         //document.getElementById('submit').disabled = true;
     }
 }
