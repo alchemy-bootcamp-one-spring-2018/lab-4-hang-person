@@ -85,6 +85,7 @@ function youWinCanvas() {
     ctx.font = "70px Arial";
     ctx.fillText("YOU WIN!", 36, 260);
 }
+
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
@@ -195,7 +196,7 @@ function startGame(){
     document.getElementById('submit').removeAttribute("hidden");
     document.getElementById('wordOnScreen').removeAttribute("hidden");
     document.getElementById('start').setAttribute("hidden", "hidden");
-
+    drawGallows();
 };
 
 function randomNumber(amount){

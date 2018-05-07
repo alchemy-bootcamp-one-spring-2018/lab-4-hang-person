@@ -18,18 +18,13 @@
     <p hidden id="left-leg">Left leg</p>
     <p hidden id="right-leg">Right leg</p>
 
-
-
-
     <h2 hidden id="word">Word</h2>
 
     <input id="guess" onfocus="this.value=''" pattern="[A-Za-z]*" maxlength="1" hidden>
 
-
     <button hidden id="submit" onclick="letterGuess()"> Submit
     </button>
     <button id="start" onclick="startGame()">Start</button>
-
     <p hidden id="wordOnScreen"></p>
 
     <p id="correctOnScreen"></p>
@@ -37,6 +32,11 @@
     <p id="inputDisplay"></p>
 
     <p id="win-lose"></p>
+    <div>
+        <canvas id="hangCanvas" width="400" height="450" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>    
+
+    </div>
+    
 
     
 <script src = "words.js"></script>
