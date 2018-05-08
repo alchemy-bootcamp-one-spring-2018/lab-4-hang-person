@@ -30,3 +30,7 @@ body {
     left: 10px;
     /* color: transparent; */
 } 
+
+#gallows {
+    width: 300px;
+}

@@ -48,8 +48,6 @@ function guessLetter() {
         document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
         document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
         totalGuesses++; // increments totalGuesses
-        console.log('Max tries now at ' + maxTries);
-        console.log('Total guesses now at ' + totalGuesses);
    
     } else {
         alert('INCORRECT LETTER GUESSED');
@@ -61,6 +59,8 @@ function guessLetter() {
         console.log('Max tries now at ' + maxTries);
         console.log('Total guesses now at ' + totalGuesses);
     }
+    document.getElementById('remaining-guesses').textContent = 'Tries remaining ' + maxTries;
+    document.getElementById('total-guesses').textContent = 'Total guesses: ' + totalGuesses;
 }
 
 //5. If the user guesses all of the letters in the word, let them know they have "won"
@@ -69,7 +69,7 @@ function guessLetter() {
 
 
 // Function that only allows letters (no numbers) using "oninput="lettersOnly()" in HTML
-function lettersOnly(){
+function lettersOnly() {
     var textInput = document.getElementById('letter').value;
     textInput = textInput.replace(/[^A-Za-z]/g, '');
     document.getElementById('letter').value = textInput;
@@ -77,3 +77,42 @@ function lettersOnly(){
 
 
 //Function to draw the hangman
+function gallows() {
+    var imgArray = new Array();
+
+    imgArray[0] = new Image();
+    imgArray[0].src = 'images/file1.png';
+
+    imgArray[1] = new Image();
+    imgArray[1].src = 'images/file2.png';
+
+    imgArray[2] = new Image();
+    imgArray[2].src = 'images/file3.png';
+
+    imgArray[3] = new Image();
+    imgArray[3].src = 'images/file4.png';
+
+    imgArray[4] = new Image();
+    imgArray[4].src = 'images/file5.png';
+
+    imgArray[5] = new Image();
+    imgArray[5].src = 'images/file6.png';
+
+    imgArray[6] = new Image();
+    imgArray[6].src = 'images/file7.png';
+
+    imgArray[7] = new Image();
+    imgArray[7].src = 'images/file8.png';
+
+    imgArray[8] = new Image();
+    imgArray[8].src = 'images/file9.png';
+
+    imgArray[9] = new Image();
+    imgArray[9].src = 'images/file10.png';
+
+
+    for(var j = 0; j < maxTries; j++); {
+        document.getElementById('gallows').src = imgArray[j].src;
+    }
+}
+gallows();
