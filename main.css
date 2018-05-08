@@ -3,14 +3,18 @@ body {
 }
 
 #letter {
-    margin: 10px;
     width: 70px;
+    position: relative;
+    top: 5px;
+    left: 23px;
 }
 
 #text-box {
     margin: 10px;
     padding: 5px;
     width: 70px;
+    position: relative;
+    left: 15px;
 }
 
 #blanks {

@@ -13,9 +13,7 @@ var randomWord = '';
 // 1. Randomly selects a word from words.js, changes to upper case, splits letters out
 function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(randomWord);
     randomWord = randomWord.toUpperCase().split('');
-    console.log(randomWord);
     document.getElementById('word').textContent = randomWord.join(' ');
 }
 loadWord();
@@ -25,8 +23,6 @@ loadWord();
 function showBlanks() {
     for(var i = 0; i < randomWord.length; i++) {
         letterBlanks[i] = '_';
-        console.log(letterBlanks);
-        // .join(' ') adds a space, omits commas between array values, creating "blanks"
         document.getElementById('blanks').textContent = letterBlanks.join(' ');
     }
 }
@@ -38,13 +34,26 @@ showBlanks();
 //4. Show a list of all letters the user has guessed
 function guessLetter() {
     var input = document.getElementById('letter').value;
+    input = input.toUpperCase();
     if(guessedLetters.includes(input)) {
         alert('You\'ve already guessed the letter ' + input.toUpperCase() + '!');
     } else if(input == false) {
         alert('You didn\'t guess a letter!');
-    } else {
+    } else if(randomWord.includes(input)) {
+        alert('GUESSED A CORRECT LETTER');
         guessedLetters.push(input);
         document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
+        totalGuesses++;
+        console.log('Max tries now at ' + maxTries);
+        console.log('Total guesses now at ' + totalGuesses);
+    } else {
+        alert('INCORRECT LETTER GUESSED');
+        guessedLetters.push(input);
+        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
+        maxTries--;
+        totalGuesses++;
+        console.log('Max tries now at ' + maxTries);
+        console.log('Total guesses now at ' + totalGuesses);
     }
 }
 
