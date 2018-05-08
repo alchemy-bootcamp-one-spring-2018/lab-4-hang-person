@@ -13,5 +13,4 @@ function getRandom() {
 }
 
 
-
 getRandom(); // Call random word from array; split by letter

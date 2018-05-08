@@ -1,50 +1,55 @@
 /* globals wordList */
-/* exported */
+/* exported lettersOnly, guessLetter */
 'use strict';
 
+var maxTries = 10;
+var totalGuesses = 0
+var letterBlanks = [];
 var guessedLetters = [];
 var correctLetters = [];
-var numberOfGuesses = 0;
 var message = '';
+var randomWord = '';
 
-// 1. Randomly selects a word from a list of words
-var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-console.log(randomWord);
-
-// Splits randomly selected word in to individual letters
+// 1. Randomly selects a word from words.js, changes to upper case, splits letters out
 function loadWord() {
-    randomWord = randomWord.split('');
+    randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    console.log(randomWord);
+    randomWord = randomWord.toUpperCase().split('');
     console.log(randomWord);
 }
+loadWord();
+
 
 // 2. Shown line blanks for each letter of the word
-var letterBlanks = [];
-for(var i = 0; i < randomWord.length; i++) {
-    letterBlanks[i] = '_';
-    console.log(letterBlanks);
+function showBlanks() {
+    for(var i = 0; i < randomWord.length; i++) {
+        letterBlanks[i] = '_';
+        console.log(letterBlanks);
+        // .join(' ') adds a space, omits commas between array values, creating "blanks"
+        document.getElementById('blanks').textContent = letterBlanks.join(' ');
+    }
 }
-
-// .join(' ') adds a space and gets rid of commas between array values, creating "blanks"
-document.getElementById('blanks').textContent = letterBlanks.join(' ');
+showBlanks();
 
 //3. Allows the users to enter one letter "guess" at a time.
 //a. If the guess is correct, show all occurrences of that letter in the word
 //b. If the guess is incorrect, add a body part to the gallows
 //4. Show a list of all letters the user has guessed
+function guessLetter() {
+    guessedLetters.push(document.getElementById('letter').value);
+    document.getElementById('guessed-letters').textContent = guessedLetters.join(' ');
+    console.log(guessedLetters[0]);
+    console.log(guessedLetters[1]);
+}
+
 //5. If the user guesses all of the letters in the word, let them know they have "won"
 //6. If the user has enough incorrect guesses to reveal the whole body in the gallows, they "lose"
 
 
-function lettersOnly(input) {
-    var lettersOnly = /^[A-Za-z]+$/;
-    if(input.value.match(lettersOnly))
-    {
-        return true;
-    } else {
-        alert('Only letters may be used as a guess!');
-    }
-    console.log(lettersOnly);
-}
 
-lettersOnly();
-loadWord();
+// Function that only allows letters (no numbers) using "oninput="lettersOnly()" in HTML
+function lettersOnly(){
+    var textInput = document.getElementById('letter').value;
+    textInput = textInput.replace(/[^A-Za-z]/g, '');
+    document.getElementById('letter').value = textInput;
+}

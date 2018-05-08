@@ -11,8 +11,9 @@
  
     <section>
         <span id="blanks"></span>
-        <input id="text-box" type="text" maxlength="1" size="8 px" onkeydown="lettersOnly()">
-
+        <input id="letter" class="text-box" type="text" maxlength="1" size="8 px" oninput="lettersOnly()">
+        <button class="text-box" onclick="guessLetter()">Guess</button>
+        <p id="guessed-letters"></p>
         <script src="words.js"></script>
         <script src="app.js"></script>
     </section>
