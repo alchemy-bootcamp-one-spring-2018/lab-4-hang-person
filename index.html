@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hang Person</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Hang Person Game</h1>
+    <section id="section-one">
+        <img id="gallows" src="images/gallows.png" alt="gallows">
+
+        <!--hang person figure-->
+        <img id="person-0" class="hidden" src="images/head.png" alt="stick figure head">
+        <img id="person-1" class="hidden" src="images/body.png" alt="stick figure body">
+        <img id="person-2" class="hidden" src="images/left-arm.png" alt="stick figure arm">
+        <img id="person-3" class="hidden" src="images/right-arm.png" alt="stick figure arm">
+        <img id="person-4" class="hidden" src="images/left-leg.png" alt="stick figure leg">
+        <img id="person-5" class="hidden" src="images/right-leg.png" alt="stick figure leg">
+    </section>
+    
+    <section id="section-two">
+        <p id="word-1"></p>
+        <input id="letter-input" maxlength="1">
+        <button id="guess-button" onclick="guess()">Guess Letter</button>
+        <p id="end-game"></p>
+
+        <h3>Wrong Letters:</h3>
+        <p id="wrong-letters"></p>
+        <p id="guess-count">Guesses made: 0</p>
+    </section>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

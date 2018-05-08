@@ -1,0 +1,77 @@
+img {
+   transform: none; 
+}
+
+#section-one {
+    position: relative;
+}
+
+#gallows {
+    height: 350px;    
+}
+
+#person-0 {
+    width: 50px;
+    position: absolute;
+    top: 97px;
+    left: 191px;
+}
+
+#person-1 {
+    height: 75px;
+    position: absolute;
+    top: 140px;
+    left: 212px;
+}
+
+#person-2 {
+    height: 50px;
+    position: absolute;
+    top: 120px;
+    left: 160px;
+}
+
+#person-3 {
+    height: 75px;
+    position: absolute;
+    top: 105px;
+    left: 215px;
+}
+
+#person-4 {
+    height: 70px;
+    position: absolute;
+    top: 190px;
+    left: 170px;
+}
+
+#person-5 {
+    height: 47px;
+    position: absolute;
+    top: 205px;
+    left: 200px;
+}
+
+#section-two, #section-one, h1 {
+    margin-left: 50px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#word-1 {
+    font-size: 40px;
+}
+
+#wrong-letters {
+    color: red;
+}
+
+#end-game {
+    color: blue;
+}
+
+.hidden {
+    visibility: hidden;
+}
