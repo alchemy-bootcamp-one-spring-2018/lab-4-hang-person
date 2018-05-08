@@ -35,23 +35,29 @@ showBlanks();
 function guessLetter() {
     var input = document.getElementById('letter').value;
     input = input.toUpperCase();
+   
     if(guessedLetters.includes(input)) {
         alert('You\'ve already guessed the letter ' + input.toUpperCase() + '!');
-    } else if(input == false) {
+  
+    } else if(input === '') {
         alert('You didn\'t guess a letter!');
+   
     } else if(randomWord.includes(input)) {
         alert('GUESSED A CORRECT LETTER');
-        guessedLetters.push(input);
-        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
-        totalGuesses++;
+        guessedLetters.push(input); // adds guess to guessedLetters array
+        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
+        document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
+        totalGuesses++; // increments totalGuesses
         console.log('Max tries now at ' + maxTries);
         console.log('Total guesses now at ' + totalGuesses);
+   
     } else {
         alert('INCORRECT LETTER GUESSED');
-        guessedLetters.push(input);
-        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
-        maxTries--;
-        totalGuesses++;
+        guessedLetters.push(input); // adds guess to guessedLetters array
+        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
+        document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
+        maxTries--; // decrements maxTries
+        totalGuesses++; // increments total Guesses
         console.log('Max tries now at ' + maxTries);
         console.log('Total guesses now at ' + totalGuesses);
     }
@@ -68,3 +74,6 @@ function lettersOnly(){
     textInput = textInput.replace(/[^A-Za-z]/g, '');
     document.getElementById('letter').value = textInput;
 }
+
+
+//Function to draw the hangman
