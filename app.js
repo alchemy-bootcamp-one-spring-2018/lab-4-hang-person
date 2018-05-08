@@ -202,4 +202,3 @@ function randomNumber(amount){
 }
 
 
-getWord(words);
