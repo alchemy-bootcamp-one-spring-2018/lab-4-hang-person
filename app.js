@@ -112,9 +112,7 @@ function checkWin(){
 }
 
 function clearInput(){
-    console.log('this is working');
-    var resetInput = document.getElementById('guess').value = '';
-    // resetInput.reset() = ' ';
+    document.getElementById('guess').value = '';
 }
 
 var displayLetters = '';
