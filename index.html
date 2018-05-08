@@ -9,10 +9,14 @@
 </head>
 <body>
  
-    <section>
+    <section class="first-block">
+        <span id="word"></span>
+        <br>
         <span id="blanks"></span>
-        <input id="letter" class="text-box" type="text" maxlength="1" size="8 px" oninput="lettersOnly()">
-        <button class="text-box" onclick="guessLetter()">Guess</button>
+        <br>
+        <input id="letter" type="text" maxlength="1" size="10 px" oninput="lettersOnly()">
+        <br>
+        <button id="text-box" onclick="guessLetter()">Guess</button>
         <p id="guessed-letters"></p>
         <script src="words.js"></script>
         <script src="app.js"></script>

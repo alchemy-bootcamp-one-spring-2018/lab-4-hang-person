@@ -16,6 +16,7 @@ function loadWord() {
     console.log(randomWord);
     randomWord = randomWord.toUpperCase().split('');
     console.log(randomWord);
+    document.getElementById('word').textContent = randomWord.join(' ');
 }
 loadWord();
 
@@ -36,11 +37,14 @@ showBlanks();
 //b. If the guess is incorrect, add a body part to the gallows
 //4. Show a list of all letters the user has guessed
 function guessLetter() {
-    if(guessedLetters.includes(document.getElementById('letter').value)) {
-        alert('You\'ve already guessed the letter ' + document.getElementById('letter').value + '!');
+    var input = document.getElementById('letter').value;
+    if(guessedLetters.includes(input)) {
+        alert('You\'ve already guessed the letter ' + input.toUpperCase() + '!');
+    } else if(input == false) {
+        alert('You didn\'t guess a letter!');
     } else {
-        guessedLetters.push(document.getElementById('letter').value);
-        document.getElementById('guessed-letters').textContent = guessedLetters.join(' ').toUpperCase();
+        guessedLetters.push(input);
+        document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
     }
 }
 
