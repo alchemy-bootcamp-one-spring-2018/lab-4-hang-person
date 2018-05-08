@@ -32,8 +32,10 @@ function gameOn() {
 }
 
 function submitLetter() {
-    var letter = document.getElementById('userInput').textContent;
-    document.getElementById('userInput').textContent = letter.textContent;
+    var letter = document.getElementById('userInput').value;
+    document.getElementById('letter').textContent = letter;
 }
+
+
 
 
