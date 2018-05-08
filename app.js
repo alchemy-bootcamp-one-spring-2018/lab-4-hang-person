@@ -8,19 +8,20 @@ function getRandomIndex(max) {
 
 }
 
-var index = getRandomIndex(words.length);
-var gameWord = words[index];
 var underscore;
 var underscoreArray = [];
-var wordArray = gameWord.split('');
 
 
 // Game start
 function gameOn() {
+    var index = getRandomIndex(words.length);
+    var gameWord = words[index];
+    var wordArray = gameWord.split('');
     console.log('game is running');
     console.log('gameWord is', gameWord);
     console.log('letters:', wordArray);
     console.log(gameWord.length);
+    console.log('index: ', index);
     underscoreArray = [];
 
     for(var i = 0; i < gameWord.length; i++) {
