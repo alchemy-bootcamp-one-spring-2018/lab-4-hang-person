@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hang Man Game</title>
-
-    <section id="game">
-        <input maxlength="1" id="input">
-        <input type="button" id="start" onclick="">
-        <p id="usedLetters"></p>
-    </section>
-
-    <script src="words.js"></script>
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+ 
+    <section>
+        <span id="blanks"></span>
+        <input id="text-box" type="text" maxlength="1" size="8 px" onkeydown="lettersOnly()">
+
+        <script src="words.js"></script>
+        <script src="app.js"></script>
+    </section>
 </body>
 </html>

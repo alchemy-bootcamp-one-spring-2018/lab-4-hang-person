@@ -1,0 +1,8 @@
+body {
+    background-color: rgb(81, 187, 223);
+}
+
+#text-box {
+    margin: 20px;
+    display: block;
+}
