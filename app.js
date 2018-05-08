@@ -106,58 +106,53 @@ function alpha(e) {
 
 function checkWin(){
     if(displayArray.indexOf('-') === -1){
-        var winText = document.getElementById('win-lose');
-        winText.textContent = 'You win!';
         setTimeout(youWinCanvas, 750);
-        //document.getElementById('submit').disabled = true;
+        document.getElementById('submit').disabled = true;
     }
+}
+
+function clearInput(){
+    console.log('this is working');
+    var resetInput = document.getElementById('guess').value = '';
+    // resetInput.reset() = ' ';
 }
 
 var displayLetters = '';
 //guess function
 function letterGuess() {
     var guessed = userGuess.value.trim().toLowerCase();
-    
-    //changes the text on screen for display
-    
-    for(var i = 0; i < pastaSpl.length; i++); {
+    for(var i = 0; i < pastaSpl.length; i++) {
+        var p = document.getElementById('inputDisplay');
+        p.textContent = displayLetters;
         if(pastaSpl.includes(guessed)) {
             var arrayPosition = pastaSpl.indexOf(guessed);
             displayArray[arrayPosition] = guessed;
             var p2 = document.getElementById('wordOnScreen');
             p2.textContent = displayArray.join('');
             checkWin();
-        } else if(displayLetters.includes(guessed)){
-            alert('you already guessed ' + guessed + ', please try another letter');
         } else {
-            displayLetters += guessed + ', ';
-            maxGuesses++;
-            if(maxGuesses === 1) {
-                drawHead();
-                //document.getElementById('head').removeAttribute("hidden");
-            } else if(maxGuesses === 2){
-                drawBody();
-                //document.getElementById('body').removeAttribute("hidden");
-            } else if(maxGuesses === 3){
-                drawLeftArm();
-                //document.getElementById('left-arm').removeAttribute("hidden");
-            } else if(maxGuesses === 4){
-                drawRightArm();
-                //document.getElementById('right-arm').removeAttribute("hidden");
-            } else if(maxGuesses === 5){
-                drawLeftLeg();
-                //document.getElementById('left-leg').removeAttribute("hidden");
-            } else if(maxGuesses === 6){
-                drawRightLeg();
-                setTimeout(youLoseCanvas, 1000);
-                //document.getElementById('right-leg').removeAttribute("hidden");
+            if(displayLetters.includes(guessed)){
+                break;
             } else {
-                var loseText = document.getElementById('win-lose');
-                loseText.textContent = 'You lose.';
+                displayLetters += guessed + ', ';
+                maxGuesses++;
+                if(maxGuesses === 1) {
+                    drawHead();
+                } else if(maxGuesses === 2){
+                    drawBody();
+                } else if(maxGuesses === 3){
+                    drawLeftArm();
+                } else if(maxGuesses === 4){
+                    drawRightArm();
+                } else if(maxGuesses === 5){
+                    drawLeftLeg();
+                } else if(maxGuesses === 6){
+                    drawRightLeg();
+                    setTimeout(youLoseCanvas, 1000);
+                    document.getElementById('submit').disabled = true;
+                }
             }
         }
-        var p = document.getElementById('inputDisplay');
-        p.textContent = displayLetters;
     }
 }
 
@@ -177,8 +172,6 @@ function getWord(pastaWords){
     var index = randomNumber(pastaWords.length);
     //actually gets item from array
     var pasta = pastaWords[index];
-    // var p1 = document.getElementById('wordOnScreen');
-    // p1.textContent = pasta;
 
     maximumGuesses();
 
@@ -198,9 +191,6 @@ function getWord(pastaWords){
 }
 
 function startGame(){
-    document.getElementById('header').removeAttribute('hidden');
-    //document.getElementById('gallows').removeAttribute("hidden");
-    document.getElementById('word').removeAttribute('hidden');
     document.getElementById('guess').removeAttribute('hidden');
     document.getElementById('submit').removeAttribute('hidden');
     document.getElementById('wordOnScreen').removeAttribute('hidden');
@@ -209,9 +199,9 @@ function startGame(){
 }
 
 function randomNumber(amount){
-    //random number generator, adjusts with string length
     return Math.floor(Math.random(amount) * words.length);
 
 }
+
 
 getWord(words);

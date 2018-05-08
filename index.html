@@ -8,7 +8,7 @@
     <title>Hang person</title>
 </head>
 <body>
-    <h1 hidden id="header">Hang Person</h1>
+    <h1 id="header">Hang Person</h1>
 
     <p hidden id="head">Head</p>
     <p hidden id="body">Body</p>
@@ -17,11 +17,9 @@
     <p hidden id="left-leg">Left leg</p>
     <p hidden id="right-leg">Right leg</p>
 
-    <h2 hidden id="word">Word</h2>
-
     <input id="guess" onfocus="this.value=''" onkeypress="return alpha(event)" maxlength="1" hidden>
 
-    <button hidden id="submit" onclick="letterGuess()"> Submit
+    <button hidden id="submit" onclick="letterGuess(), clearInput()"> Submit
     </button>
     <button id="start" onclick="startGame()">Start</button>
     <p hidden id="wordOnScreen"></p>
@@ -30,7 +28,7 @@
 
     <p id="inputDisplay"></p>
 
-    <p id="win-lose"></p>
+    <p id="guess-again"></p>
     
     <div>
         <canvas id="hangCanvas" width="400" height="450" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>    
