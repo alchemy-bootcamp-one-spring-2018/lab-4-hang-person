@@ -18,7 +18,14 @@
         <li>If you chose the correct letter great! If not, you'll see a new part of our gender ambiguous/fluid/woke/#thisis2018 stick person</li>
     </ol>
     
-    <button onclick="gameOn()">click responsibly</button>
+    
+<!-- Button to start game -->
+    <button onclick="gameOn()">Start Game</button><br>
+    <p></p>
+    <input id="userInput" type="text" placeholder="enter a letter!">
+ 
+<!-- Button to submit letter -->
+    <button onclick="submitLetter()">submit</button>
 
     <p id="letter-0"></p>
     <p id="letter-1"></p>
@@ -40,6 +47,13 @@
     <img src="body.jpg" id="body">
     <img src="leg.jpg" id="leg">
     <img src="leg.jpg" id="leg">
+
+    <section id="letter-0"></section> 
+    
+    <p>Guessed letters:</p> 
+    <p id = "letter"></p>
+    
+
 </body>
 
 <script src="words.js"></script>

@@ -1,73 +1,41 @@
 'use strict';
-/* exported gameOn, words, attempts, loadWord, gameWord, wordArray*/
+/* exported gameOn, words, attempts, loadWord, gameWord, wordArray, submitLetter*/
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// chooses a random word from our word array
 function getRandomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max));
 
 }
 
-// console.log(getRandomIndex(words));
+var underscore;
+var underscoreArray = [];
 
+
+// Game start
 function gameOn() {
-    console.log('game is running');
     var index = getRandomIndex(words.length);
     var gameWord = words[index];
+    var wordArray = gameWord.split('');
+    console.log('game is running');
     console.log('gameWord is', gameWord);
+    console.log('letters:', wordArray);
+    console.log(gameWord.length);
+    console.log('index: ', index);
+    underscoreArray = [];
 
-    function showLetter() {
-        var x = document.getElementById('p');
-        if(x.style.display === 'none') {
-            x.style.display = 'block';
-        }
-        else {
-            x.style.display = 'none';
-
-        }
+    for(var i = 0; i < gameWord.length; i++) {
+        underscore = document.getElementById('letter-0');
+        underscoreArray.push(' _');
+        underscore.innerHTML = underscoreArray.join('');
     }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function loadWord(){
-    //     var index = getRandomIndex(words.length);
-    //     var gameWord = words[index];
-    //     console.log('index is', index);
-    // }
-
-    // function wordArray(){
-    //     gameWord.split();
-    // }
+function submitLetter() {
+    var letter = document.getElementById('userInput').value;
+    document.getElementById('letter').textContent = letter;
 }
 
 
 
 
-
-//     var attempts = 6;
-//     var answer;
-//     var correct = true;
-
-//     /* Guess Loop*/
-
-//     for(var i = 0; i < 5; i++) {
-//         answer = prompt('enter any letter!');
-//         console.log(answer);
-//     }
-
-//     if(i === 6 && !correct) {
-//         alert('Damn bro, you suck so hard somebody died');
-
-//     }
-
-// }
