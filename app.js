@@ -3,7 +3,7 @@
 'use strict';
 
 var maxTries = 10;
-var totalGuesses = 0
+var totalGuesses = 0;
 var letterBlanks = [];
 var guessedLetters = [];
 var correctLetters = [];
@@ -36,10 +36,12 @@ showBlanks();
 //b. If the guess is incorrect, add a body part to the gallows
 //4. Show a list of all letters the user has guessed
 function guessLetter() {
-    guessedLetters.push(document.getElementById('letter').value);
-    document.getElementById('guessed-letters').textContent = guessedLetters.join(' ');
-    console.log(guessedLetters[0]);
-    console.log(guessedLetters[1]);
+    if(guessedLetters.includes(document.getElementById('letter').value)) {
+        alert('You\'ve already guessed the letter ' + document.getElementById('letter').value + '!');
+    } else {
+        guessedLetters.push(document.getElementById('letter').value);
+        document.getElementById('guessed-letters').textContent = guessedLetters.join(' ').toUpperCase();
+    }
 }
 
 //5. If the user guesses all of the letters in the word, let them know they have "won"
