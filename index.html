@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <section class="game">
+        <h1>Hang Bear Game</h1>
+        <h2>By Carmen &amp; Arthur</h2>
+        <button onclick="stateGame()">Click to Start</button>
+        <p id="state-name"> 
+            <span id = "letter-0"></span>
+            <span id = "letter-1"></span>
+            <span id = "letter-2"></span>
+            <span id = "letter-3"></span>
+            <span id = "letter-4"></span>
+            <span id = "letter-5"></span>
+            <span id = "letter-6"></span>
+            <span id = "letter-7"></span>
+            <span id = "letter-8"></span>
+            <span id = "letter-9"></span>
+            <span id = "letter-10"></span>
+            <span id = "letter-11"></span>
+            <span id = "letter-12"></span>
+        </p>
+        <div id="guess">
+            <p> 
+                <input id="letter-input" maxlength="1">
+                <button id="guess-button" onclick="guessLetter()" disabled>Guess</button>
+            </p>
+            <section>
+                <p id="guessed-letters"></p>
+            </section>
+            <section id="game-end">
+                <p id="game-end-response"></p>
+            </section>
+        </div>
+    </section>
+    <section class="images">
+        <span id="guesses-remaining"></span>
+        <img class="bear" id="bear-6" src="https://i.imgur.com/PRv8JiZ.png" alt="bear head" width="100px">
+        <img class="bear" id="bear-5" src="https://i.imgur.com/8zzKokE.png" alt="bear body" width="130px">
+        <img class="bear" id="bear-4" src="https://i.imgur.com/ByvaNy9.png" alt="bear left arm" width="50px">
+        <img class="bear" id="bear-3" src="https://i.imgur.com/pIQOfwq.png" alt="bear right arm" width="50px">
+        <img class="bear" id="bear-2" src="https://i.imgur.com/lOnN7RY.png" alt="bear left leg" width="30px">
+        <img class="bear" id="bear-1" src="https://i.imgur.com/wEphI6D.png" alt="bear right leg" width="30px">
+        <img class="gallows" src="https://simplyfantasticbooks.files.wordpress.com/2011/10/hanging_noose.jpg" alt="gallows" width="400px">
+    </section>
+    <script src="word.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

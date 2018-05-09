@@ -1,0 +1,104 @@
+h1 {
+    font-size: 4em;
+}
+
+#guesses-remaining {
+    font-size: 2em;
+    padding-left: 100px;
+}
+
+button, input {
+    font-size: 2em;
+}
+
+#state-name {
+    font-size: 3em;
+}
+
+#guess {
+    position:absolute;
+    top: 400px;
+
+}
+
+#guessed-letters {
+    font-size: 1.5em;
+}
+
+#game-end-response {
+    font-size: 3em;
+}
+
+
+.game {
+    border: 5px solid black;
+    background: #feb315;
+    float: left;
+    width: 700px;
+    height: 700px;
+    box-sizing: border-box;
+    padding-left: 30px;
+}
+
+.images {
+    float: left;
+    width: 700px;
+    height: 700px;
+    box-sizing: border-box;
+
+}
+
+.gallows {
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+    z-index: 1;
+}
+
+#bear-6 {
+   visibility: hidden;
+   position: absolute;
+   z-index: 4;
+   top: 190px;
+   left: 985px;
+}
+
+#bear-5 {
+    visibility: hidden;
+    position: absolute;
+    z-index: 4;
+    top: 171px;
+    left: 970px;
+}
+
+#bear-4 {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 249px;
+    left: 960px;
+}
+
+#bear-3 {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 249px;
+    left: 1060px;
+}
+
+#bear-2 {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 307px;
+    left: 996px;
+}
+
+#bear-1 {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 307px;
+    left: 1047px;
+}
