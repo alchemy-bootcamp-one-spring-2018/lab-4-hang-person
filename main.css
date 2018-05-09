@@ -1,0 +1,27 @@
+body {
+    background-color: ivory;
+    font-size: 24px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+input {
+    width: 50px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+button {
+    font-weight: bold;
+    font-size: 18px;
+    color: steelblue;
+    width: 100px;
+    height: 40px;
+    margin-top: 25px;
+}
