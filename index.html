@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Hang Person Game
+    </h1> 
+
+    <!-- gallows -->
+    <div>
+
+        Fribbets the mamba!
+    </div>
+
+    <!-- letter blanks --> 
+    <div id="guess-word">
+
+        <p id="letter-0"></p>
+        <p id="letter-1"></p>
+        <p id="letter-2"></p>
+        <p id="letter-3"></p>
+        <p id="letter-4"></p>
+        <p id="letter-5"></p>
+        <p id="letter-6"></p>
+        
+        <p id="car-letters"></p>
+        <button onclick = "loadWord()">Start Game!</button>
+    </div>
+
+    <!-- guessed letters & number of guesses-->
+    <div>
+        <p id="blank-spaces"></p>
+    </div>
+    
+    <!-- input -->
+    <div>
+        <h3>Guess Letter here:</h3>
+        <input type="text" id="guess-box">
+        <button onclick = "guessLetter()">GUESS</button>
+        <p id="userguess"></p>
+        <p id="correct-guess"></p>
+    
+    </div>
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
