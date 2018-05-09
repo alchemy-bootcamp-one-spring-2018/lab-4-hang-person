@@ -32,10 +32,10 @@ function gameOn() {
 }
 
 function submitLetter() {
+    const span = document.createElement('span');
     var letter = document.getElementById('userInput').value;
-    document.getElementById('letter').textContent = letter;
+    span.textContent = `${letter}, `;
+    span.classList.add('para');
+    const div = document.getElementById('letter');
+    div.appendChild(span);
 }
-
-
-
-
