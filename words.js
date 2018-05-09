@@ -13,5 +13,3 @@ var wordList = [
     'teach',
     'tacos',
 ];
-
-console.log('The word list array currently has ' + wordList.length + ' words.');
