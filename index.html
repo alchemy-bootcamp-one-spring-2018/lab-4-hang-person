@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Art Word Hang Person Game</h1>
+    <img id="image" src="hang1.jpg">
+
+    <button id="startButton" onclick="startGame()">Run game!</button>
+    <p id="tempViewWord"></p>
+    
+    <input type="text" id="guessInput" disabled="true">
+    <button id="guessButton" onclick= "guess()" disabled="true">Guess</button>
+
+    <!-- this is where the blanks/correct guesses will appear -->
+    <h2 id="wordDisplay"></h2>
+
+    <h3>Total guesses: <span id="totalGuesses"></span></h3>
+
+    <h3>Wrong guesses: <span id="boneYardDisplay"></span></h3>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script> 
+</body>
+</html>
