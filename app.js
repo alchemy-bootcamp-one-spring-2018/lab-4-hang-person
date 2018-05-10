@@ -39,7 +39,7 @@ function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     randomWord = randomWord.toUpperCase().split('');
     for(var i = 0; i < arrBlank.length; i++) {
-        arrBlank[i].style.visibility = 'hidden';
+        arrBlank[i].style.visibility = '!hidden';
         arrBlank[i].textContent = randomWord[i];
     }
     
@@ -82,7 +82,6 @@ function guessLetter() {
         console.log('correctLetters: ' + correctLetters);
         guessedLetters.push(input); // adds guess to total guessedLetters array
         totalGuesses++; // increments number of totalGuesses
-        winLose();
    
     } else {
         alert('Sorry, the letter ' + input + ' is not included in the word!');
@@ -91,33 +90,25 @@ function guessLetter() {
         totalGuesses++; // increments total Guesses
         wrongGuesses++;
         gallows();
-        winLose();
     }
     document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
     document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
     document.getElementById('remaining-guesses').textContent = 'Tries remaining ' + maxTries;
     document.getElementById('total-guesses').textContent = 'Total guesses: ' + totalGuesses;
+    winLose();
 }
 
 //5. If the user guesses all of the letters in the word, let them know they have "won"
 //6. If the user has enough incorrect guesses to reveal the whole body in the gallows, they "lose"
 function winLose() {
     if(randomWord.length === correctLetters.length) {
-        console.log('Win/lose function = true (running)');
         alert ('You won!');
         document.getElementById('button').disabled = true;
-        //setTimeout(if(confirm('Play again?')))
+
     } else {
         if(maxTries === 0) {
             alert('You lose!');
-            if(confirm('Play again?')) {
-                loadWord();
-                maxTries = 10;
-                totalGuesses = 0;
-                wrongGuesses = 0;
-                guessedLetters = [];
-                correctLetters = [];
-            }
+            document.getElementById('button').disabled = true;
         }
     }
 }
@@ -128,7 +119,6 @@ function gallows() {
     var i;
     for(i = 0; i < wrongGuesses; i++) {
         elImg.src = imgArray[i].src;
-        console.log(i);
     }
 }
 
