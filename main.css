@@ -9,6 +9,14 @@ body {
     left: 23px;
 }
 
+#five-letters {
+    width: 120px;
+    position: relative;
+    top: 40px;
+    left: 15px;
+    font-size: 23px
+}
+
 #text-box {
     margin: 10px;
     padding: 5px;

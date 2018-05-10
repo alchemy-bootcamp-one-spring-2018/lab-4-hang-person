@@ -38,14 +38,13 @@ function lettersOnly() {
 function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     randomWord = randomWord.toUpperCase().split('');
-    //document.getElementById('word').textContent = randomWord.join(' ');
     console.log(arrBlank);
     for(var i = 0; i < arrBlank.length; i++) {
-        arrBlank[i].style.visibility = 'hidden';
+        arrBlank[i].style.visibility = '!hidden';
         arrBlank[i].textContent = randomWord[i];
     }
     
-    console.log(randomWord);
+    console.log('randomWord: ' + randomWord);
 }
 
 
@@ -81,8 +80,10 @@ function guessLetter() {
             }
         }
         correctLetters.push(input); // adds correct guess to letter bank
+        console.log('correctLetters: ' + correctLetters);
         guessedLetters.push(input); // adds guess to total guessedLetters array
         totalGuesses++; // increments number of totalGuesses
+        winLose();
    
     } else {
         alert('INCORRECT LETTER GUESSED');
@@ -91,6 +92,7 @@ function guessLetter() {
         totalGuesses++; // increments total Guesses
         wrongGuesses++;
         gallows();
+        winLose();
     }
     document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
     document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
@@ -99,15 +101,35 @@ function guessLetter() {
 }
 
 //5. If the user guesses all of the letters in the word, let them know they have "won"
-function win() {
-    if(correctLetters.join(',').includes(randomWord.join(','))) {
-        alert('WINNER');
+//6. If the user has enough incorrect guesses to reveal the whole body in the gallows, they "lose"
+function winLose() {
+    if(randomWord.length === correctLetters.length) {
+        console.log('Win/lose function = true (running)');
+        alert ('You won!');
+        loadWord();
+        maxTries = 10;
+        totalGuesses = 0;
+        wrongGuesses = 0;
+        guessedLetters = [];
+        correctLetters = [];
+    } else {
+        if(maxTries === 0) {
+            alert('You lose!');
+        }
     }
 }
-//6. If the user has enough incorrect guesses to reveal the whole body in the gallows, they "lose"
 
+// Function to draw the hangman
+function gallows() {
+    var elImg = document.getElementById('gallows');
+    var i;
+    for(i = 0; i < wrongGuesses; i++) {
+        elImg.src = imgArray[i].src;
+        console.log(i);
+    }
+}
 
-
+// Gallows images (10 images for 10 incorrect guesses)
 var imgArray = new Array();
 
 imgArray[0] = new Image();
@@ -140,19 +162,5 @@ imgArray[8].src = 'images/file9.png';
 imgArray[9] = new Image();
 imgArray[9].src = 'images/file10.png';
 
-//Function to draw the hangman
-function gallows() {
-    var elImg = document.getElementById('gallows');
-    var i;
-    for(i = 0; i < wrongGuesses; i++) {
-        elImg.src = imgArray[i].src;
-        console.log(i);
-    }
-        
-// elImg.src = (imgArray[9].src);
-}
-
 loadWord();
 showBlanks();
-
-win();
