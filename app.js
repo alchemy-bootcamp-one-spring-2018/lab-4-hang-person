@@ -25,7 +25,6 @@ var arrBlank = [
     blanks5,
 ];
 
-
 // Function that only allows letters (no numbers) using "oninput="lettersOnly()" in HTML
 function lettersOnly() {
     var textInput = document.getElementById('letter').value;
@@ -40,6 +39,7 @@ function loadWord() {
     randomWord = randomWord.toUpperCase().split('');
     for(var i = 0; i < arrBlank.length; i++) {
         arrBlank[i].style.visibility = '!hidden';
+        console.log('style visibility test ' + arrBlank[i].style.visibility);
         arrBlank[i].textContent = randomWord[i];
     }
     
@@ -74,7 +74,10 @@ function guessLetter() {
         alert('GUESSED A CORRECT LETTER');
         for(var i = 0; i < randomWord.length; i++) {
             if(randomWord[i].includes(input)) {
-                arrBlank[i].style.visibility = '!hidden';
+                console.log('TESTING ' + randomWord[i]);
+                console.log('Something else ' + randomWord[i].includes(input));
+                arrBlank[i].style.visibility = 'visibile';
+                console.log('arrBlank test ' + arrBlank[i].style.visibility);
                 //set randomWord style to visible (hidden already) <<<VISIBILITY FUNCTION NOT WORKING
             }
         }
@@ -157,4 +160,3 @@ imgArray[9].src = 'images/file10.png';
 
 loadWord();
 showBlanks();
-console.log(arrBlank);
