@@ -38,9 +38,8 @@ function lettersOnly() {
 function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     randomWord = randomWord.toUpperCase().split('');
-    console.log(arrBlank);
     for(var i = 0; i < arrBlank.length; i++) {
-        arrBlank[i].style.visibility = '!hidden';
+        arrBlank[i].style.visibility = 'hidden';
         arrBlank[i].textContent = randomWord[i];
     }
     
@@ -74,9 +73,9 @@ function guessLetter() {
     } else if(randomWord.includes(input)) {
         alert('GUESSED A CORRECT LETTER');
         for(var i = 0; i < randomWord.length; i++) {
-            if(randomWord[i] === input) {
+            if(randomWord[i].includes(input)) {
                 arrBlank[i].style.visibility = '!hidden';
-                //set randomWord style to visible (hidden already)
+                //set randomWord style to visible (hidden already) <<<VISIBILITY FUNCTION NOT WORKING
             }
         }
         correctLetters.push(input); // adds correct guess to letter bank
@@ -86,7 +85,7 @@ function guessLetter() {
         winLose();
    
     } else {
-        alert('INCORRECT LETTER GUESSED');
+        alert('Sorry, the letter ' + input + ' is not included in the word!');
         guessedLetters.push(input); // adds guess to guessedLetters array
         maxTries--; // decrements maxTries
         totalGuesses++; // increments total Guesses
@@ -106,15 +105,19 @@ function winLose() {
     if(randomWord.length === correctLetters.length) {
         console.log('Win/lose function = true (running)');
         alert ('You won!');
-        loadWord();
-        maxTries = 10;
-        totalGuesses = 0;
-        wrongGuesses = 0;
-        guessedLetters = [];
-        correctLetters = [];
+        document.getElementById('button').disabled = true;
+        //setTimeout(if(confirm('Play again?')))
     } else {
         if(maxTries === 0) {
             alert('You lose!');
+            if(confirm('Play again?')) {
+                loadWord();
+                maxTries = 10;
+                totalGuesses = 0;
+                wrongGuesses = 0;
+                guessedLetters = [];
+                correctLetters = [];
+            }
         }
     }
 }
@@ -164,3 +167,4 @@ imgArray[9].src = 'images/file10.png';
 
 loadWord();
 showBlanks();
+console.log(arrBlank);

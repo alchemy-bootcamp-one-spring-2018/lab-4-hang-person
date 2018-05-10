@@ -6,7 +6,7 @@ body {
     width: 70px;
     position: relative;
     top: 5px;
-    left: 23px;
+    left: 15px;
 }
 
 #five-letters {
@@ -17,12 +17,12 @@ body {
     font-size: 23px
 }
 
-#text-box {
+#button {
     margin: 10px;
     padding: 5px;
     width: 70px;
     position: relative;
-    left: 15px;
+    left: 8px;
 }
 
 #blanks {
