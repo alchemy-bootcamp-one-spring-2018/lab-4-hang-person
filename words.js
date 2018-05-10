@@ -3,7 +3,7 @@
 'use strict';
 
 var wordList = [
-    'books',
+    'tacks',
     'dogs',
     'code',
     'cats',

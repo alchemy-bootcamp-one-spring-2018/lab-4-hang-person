@@ -11,12 +11,20 @@
  
     <section class="first-block">
         <span id="word"></span>
+        <div id="five-letters">
+            <span id="letter0"></span>
+            <span id="letter1"></span>
+            <span id="letter2"></span>
+            <span id="letter3"></span>
+            <span id="letter4"></span>
+        </div>
         <br>
         <span id="blanks"></span>
         <br>
         <input id="letter" type="text" maxlength="1" size="10 px" oninput="lettersOnly()">
         <br>
         <button id="text-box" onclick="guessLetter()">Guess</button>
+        
 
         <p id="guessed-letters"></p>
         <p id="total-guesses"></p>

@@ -4,11 +4,26 @@
 
 var maxTries = 10;
 var totalGuesses = 0;
+var wrongGuesses = 0;
 var letterBlanks = [];
 var guessedLetters = [];
 var correctLetters = [];
 var input = [];
 var randomWord = '';
+
+var blanks1 = document.getElementById('letter0');
+var blanks2 = document.getElementById('letter1');
+var blanks3 = document.getElementById('letter2');
+var blanks4 = document.getElementById('letter3');
+var blanks5 = document.getElementById('letter4');
+
+var arrBlank = [
+    blanks1,
+    blanks2,
+    blanks3,
+    blanks4,
+    blanks5,
+];
 
 
 // Function that only allows letters (no numbers) using "oninput="lettersOnly()" in HTML
@@ -19,11 +34,18 @@ function lettersOnly() {
 }
 
 
-// 1. Randomly selects a word from words.js, changes to upper case, splits letters out
+// 1. Randomly selects a word from words.js, changes to upper case, splits letters out in to array
 function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     randomWord = randomWord.toUpperCase().split('');
-    document.getElementById('word').textContent = randomWord.join(' ');
+    //document.getElementById('word').textContent = randomWord.join(' ');
+    console.log(arrBlank);
+    for(var i = 0; i < arrBlank.length; i++) {
+        arrBlank[i].style.visibility = 'hidden';
+        arrBlank[i].textContent = randomWord[i];
+    }
+    
+    console.log(randomWord);
 }
 
 
@@ -52,6 +74,12 @@ function guessLetter() {
    
     } else if(randomWord.includes(input)) {
         alert('GUESSED A CORRECT LETTER');
+        for(var i = 0; i < randomWord.length; i++) {
+            if(randomWord[i] === input) {
+                arrBlank[i].style.visibility = '!hidden';
+                //set randomWord style to visible (hidden already)
+            }
+        }
         correctLetters.push(input); // adds correct guess to letter bank
         guessedLetters.push(input); // adds guess to total guessedLetters array
         totalGuesses++; // increments number of totalGuesses
@@ -61,6 +89,8 @@ function guessLetter() {
         guessedLetters.push(input); // adds guess to guessedLetters array
         maxTries--; // decrements maxTries
         totalGuesses++; // increments total Guesses
+        wrongGuesses++;
+        gallows();
     }
     document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
     document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
@@ -70,7 +100,7 @@ function guessLetter() {
 
 //5. If the user guesses all of the letters in the word, let them know they have "won"
 function win() {
-    if(correctLetters.join('') === randomWord.join('')) {
+    if(correctLetters.join(',').includes(randomWord.join(','))) {
         alert('WINNER');
     }
 }
@@ -114,8 +144,9 @@ imgArray[9].src = 'images/file10.png';
 function gallows() {
     var elImg = document.getElementById('gallows');
     var i;
-    for(i = 0; i < maxTries; i++) {
-        elImg.src = imgArray[totalGuesses].src;
+    for(i = 0; i < wrongGuesses; i++) {
+        elImg.src = imgArray[i].src;
+        console.log(i);
     }
         
 // elImg.src = (imgArray[9].src);
@@ -123,5 +154,5 @@ function gallows() {
 
 loadWord();
 showBlanks();
-gallows();
+
 win();
