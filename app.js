@@ -2,14 +2,14 @@
 /* exported lettersOnly, guessLetter, gallows */
 'use strict';
 
-var maxTries = 10;
-var totalGuesses = 0;
-var wrongGuesses = 0;
-var letterBlanks = [];
-var guessedLetters = [];
-var correctLetters = [];
-var input = [];
-var randomWord = '';
+var maxTries = 10; // Counter for number of tries
+var totalGuesses = 0; // Running counter of guesses (right & wrong)
+var wrongGuesses = 0; // Counter for wrong guesses
+var letterBlanks = []; // Initial blank spaces
+var guessedLetters = []; // Counter for guessed letters
+var correctLetters = []; // Counter for correct letters
+var input = []; // Text entry input
+var randomWord = ''; // Randomly generated word
 
 var blanks1 = document.getElementById('letter0');
 var blanks2 = document.getElementById('letter1');
@@ -33,21 +33,17 @@ function lettersOnly() {
 }
 
 
-// 1. Randomly selects a word from words.js, changes to upper case, splits letters out in to array
+// Randomly selects a word from words.js, changes to upper case, and splits letters out in to array
 function loadWord() {
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     randomWord = randomWord.toUpperCase().split('');
     for(var i = 0; i < arrBlank.length; i++) {
-        arrBlank[i].style.visibility = '!hidden';
-        console.log('style visibility test ' + arrBlank[i].style.visibility);
+        arrBlank[i].style.visibility = 'hidden';
         arrBlank[i].textContent = randomWord[i];
     }
-    
-    console.log('randomWord: ' + randomWord);
 }
 
-
-// 2. Shown line blanks for each letter of the word
+// Creates line blanks for each letter of the random word
 function showBlanks() {
     for(var i = 0; i < randomWord.length; i++) {
         letterBlanks[i] = '_';
@@ -55,11 +51,13 @@ function showBlanks() {
     }
 }
 
-
-//3. Allows the users to enter one letter "guess" at a time.
-//a. If the guess is correct, show all occurrences of that letter in the word
-//b. If the guess is incorrect, add a body part to the gallows
-//4. Show a list of all letters the user has guessed
+/* Allows the users to enter one letter "guess" at a time.
+If the guess is correct, shows all occurrences of that letter in the word
+If the guess is incorrect, add a body part to the gallows
+If no letter is entered and the user submits, alert message warning them pops up
+Shows a list of all letters the user has guessed
+Shows total guesses (counter)
+Shows tries remaining */
 function guessLetter() {
     input = document.getElementById('letter').value;
     input = input.toUpperCase();
@@ -68,45 +66,40 @@ function guessLetter() {
         alert('You\'ve already guessed the letter ' + input.toUpperCase() + '!');
   
     } else if(input === '') {
-        alert('You didn\'t guess a letter!');
+        alert('You didn\'t guess a letter! Please enter a letter!');
    
     } else if(randomWord.includes(input)) {
-        alert('GUESSED A CORRECT LETTER');
         for(var i = 0; i < randomWord.length; i++) {
             if(randomWord[i].includes(input)) {
-                console.log('TESTING ' + randomWord[i]);
-                console.log('Something else ' + randomWord[i].includes(input));
-                arrBlank[i].style.visibility = 'visibile';
-                console.log('arrBlank test ' + arrBlank[i].style.visibility);
-                //set randomWord style to visible (hidden already) <<<VISIBILITY FUNCTION NOT WORKING
+                arrBlank[i].style.visibility = 'visible';
             }
         }
-        correctLetters.push(input); // adds correct guess to letter bank
-        console.log('correctLetters: ' + correctLetters);
-        guessedLetters.push(input); // adds guess to total guessedLetters array
-        totalGuesses++; // increments number of totalGuesses
-   
+        correctLetters.push(input);
+        guessedLetters.push(input);
+        totalGuesses++;
+
     } else {
         alert('Sorry, the letter ' + input + ' is not included in the word!');
-        guessedLetters.push(input); // adds guess to guessedLetters array
-        maxTries--; // decrements maxTries
-        totalGuesses++; // increments total Guesses
+        guessedLetters.push(input);
+        maxTries--;
+        totalGuesses++;
         wrongGuesses++;
         gallows();
     }
-    document.getElementById('letter').value = ''; // erases value after "Guess" is clicked
-    document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase(); // writes out guessed letters
+    document.getElementById('letter').value = ''; // erases value of text box after "Guess" is clicked
+    document.getElementById('guessed-letters').textContent = 'You\'ve guessed: ' + guessedLetters.join(' ').toUpperCase();
     document.getElementById('remaining-guesses').textContent = 'Tries remaining ' + maxTries;
     document.getElementById('total-guesses').textContent = 'Total guesses: ' + totalGuesses;
     winLose();
 }
 
-//5. If the user guesses all of the letters in the word, let them know they have "won"
-//6. If the user has enough incorrect guesses to reveal the whole body in the gallows, they "lose"
+// If the user guesses all of the letters in the word, lets them know they have won
+// If the user exhausts all tries, lets them know they lose
 function winLose() {
     if(randomWord.length === correctLetters.length) {
         alert ('You won!');
         document.getElementById('button').disabled = true;
+        document.getElementById('guessed-letters').textContent = 'CONGRATULATIONS! YOU WON!';
 
     } else {
         if(maxTries === 0) {
@@ -116,7 +109,7 @@ function winLose() {
     }
 }
 
-// Function to draw the hangman
+// Draws the hang person
 function gallows() {
     var elImg = document.getElementById('gallows');
     var i;

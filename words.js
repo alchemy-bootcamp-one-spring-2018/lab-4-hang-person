@@ -9,7 +9,6 @@ var wordList = [
     'cats',
     'table',
     'wine',
-    'html',
     'teach',
     'tacos',
 ];
