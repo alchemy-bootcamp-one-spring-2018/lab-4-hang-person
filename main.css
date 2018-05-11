@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(81, 187, 223);
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#letter {
+    width: 70px;
+    position: relative;
+    top: 5px;
+    left: 23px;
+}
+
+#five-letters {
+    width: 120px;
+    position: relative;
+    top: 40px;
+    left: 15px;
+    font-size: 23px
+}
+
+#button {
+    margin: 10px;
+    padding: 5px;
+    width: 70px;
+    position: relative;
+    left: 16px;
+}
+
+#blanks {
+    font-size: 30px;
+    position: relative;
+    left: 12px;
+}
+
+#word {
+    font-size: 24px;
+    position: relative;
+    top: 25px;
+    left: 10px;
+    /* color: transparent; */
+} 
+
+#gallows {
+    width: 300px;
+}
+
+.
