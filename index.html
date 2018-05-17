@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Hang person</title>
+</head>
+<body>
+    <h1 id="header">Hang Person</h1>
+
+    <p hidden id="head">Head</p>
+    <p hidden id="body">Body</p>
+    <p hidden id="left-arm">Left Arm</p>
+    <p hidden id="right-arm">Right arm</p>
+    <p hidden id="left-leg">Left leg</p>
+    <p hidden id="right-leg">Right leg</p>
+
+    <input id="guess" onfocus="this.value=''" onkeypress="return alpha(event)" maxlength="1" hidden>
+
+    <button hidden id="submit" onclick="letterGuess(), clearInput()"> Submit
+    </button>
+    <button id="start" onclick="startGame()">Start</button>
+    <p hidden id="wordOnScreen"></p>
+
+    <p id="correctOnScreen"></p>
+
+    <p id="inputDisplay"></p>
+
+    <p id="guess-again"></p>
+    
+    <div>
+        <canvas id="hangCanvas" width="400" height="450" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>    
+    </div>
+    
+
+    
+<script src = "words.js"></script>
+<script src = "app.js"></script>
+
+</body>
+</html>
