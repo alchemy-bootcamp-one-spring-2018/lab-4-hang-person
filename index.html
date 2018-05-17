@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hang Person Game</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    <h1>Hanging Game</h1>
+
+    <h2>Guess the name of a country.</h2>
+
+
+    <button id="play-button" onclick="loadWord()">Play game!</button>
+
+    </header>
+    
+    
+    <div id="left">
+         <section id="input-letter">
+        
+            <input id="letter" onfocus="this.value=''" type="text" maxlength="1">
+            <button id="guess-button" onclick="guessLetter()">Guess a letter</button><br />
+            <!-- https://stackoverflow.com/questions/29884654/button-that-refresh-page-on-click -->
+            <input type="button" id="new-game-button" value="Start New Game" onClick="window.location.reload()">
+        
+        </section>
+    </div>
+
+    <div id="right">
+        <h4>Number of tries left: <span id="tries-left"></span></h4>
+        <section id="gallows"><img src ="img/6.png" width = "300"/> </section>
+
+        <section id="word-to-guess"></section>
+        
+        <section id="guessed-letters" ><p class="guesses-title">Guessed Letters</p></section>
+    </div>
+
+    <!-- gallows also shows number of guesses, number of guesses left and win or lose message  -->
+    <section id="win-lose-msg"></section>
+    
+    <!-- load our two JavaScript files, in sequence-->
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
